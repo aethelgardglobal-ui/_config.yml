@@ -99,12 +99,34 @@
             padding: 80px 40px;
             border: 1px solid #111;
             transition: background 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
         
         .grid-item:hover { background: #080808; }
 
         .grid-item h3 { color: var(--gold); font-size: 1rem; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 20px; }
-        .grid-item p { color: var(--text-muted); font-size: 0.95rem; line-height: 1.7; }
+        .grid-item p { color: var(--text-muted); font-size: 0.95rem; line-height: 1.7; flex-grow: 1; }
+
+        .lab-link {
+            color: var(--gold); 
+            text-decoration: none; 
+            font-size: 0.7rem; 
+            letter-spacing: 2px; 
+            text-transform: uppercase; 
+            border-bottom: 1px solid var(--gold); 
+            padding-bottom: 5px; 
+            display: inline-block; 
+            margin-top: 25px;
+            width: fit-content;
+            transition: 0.3s;
+        }
+
+        .lab-link:hover {
+            color: #fff;
+            border-bottom-color: #fff;
+        }
 
         .highlight-box {
             background: #0a0a0a;
@@ -160,16 +182,27 @@
 
     <section class="grid">
         <div class="grid-item">
-            <h3>01 // Maritime Synthesis</h3>
-            <p>Our autonomous fleets utilize solar-thermal processing to harvest PET and HDPE from oceanic gyres, converting global waste into graphene-infused structural blocks for deep-sea and terrestrial infrastructure.</p>
+            <div>
+                <h3>01 // Maritime Synthesis</h3>
+                <p>Our autonomous fleets utilize solar-thermal processing to harvest PET and HDPE from oceanic gyres, converting global waste into graphene-infused structural blocks for deep-sea and terrestrial infrastructure.</p>
+            </div>
+            <a href="maritime-lab.html" class="lab-link">Open Lab Data →</a>
         </div>
+
         <div class="grid-item">
-            <h3>02 // Lunar Logistics</h3>
-            <p>Blue-collar lunar operations focused on the maintenance of regolith extractors. We are building supply chains that transcend terrestrial limits, owned entirely by the personnel who maintain them.</p>
+            <div>
+                <h3>02 // Lunar Logistics</h3>
+                <p>Blue-collar lunar operations focused on the maintenance of regolith extractors. We are building supply chains that transcend terrestrial limits, owned entirely by the personnel who maintain them.</p>
+            </div>
+            <a href="status.html" class="lab-link">Archive Offline →</a>
         </div>
+
         <div class="grid-item">
-            <h3>03 // Surplus Distribution</h3>
-            <p>The Ledger is an immutable mathematical constant. 60% of all generated surplus is distributed directly to the labor force in real-time. No boardrooms. No middle-men. No extraction.</p>
+            <div>
+                <h3>03 // Surplus Distribution</h3>
+                <p>The Ledger is an immutable mathematical constant. 60% of all generated surplus is distributed directly to the labor force in real-time. No boardrooms. No middle-men. No extraction.</p>
+            </div>
+            <a href="briefing.html" class="lab-link">Review Ledger Protocol →</a>
         </div>
     </section>
 

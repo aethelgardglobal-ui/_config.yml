@@ -31,122 +31,36 @@
             max-width: 1000px;
         }
 
-        h1 {
-            font-size: 1rem;
-            letter-spacing: 8px;
-            color: var(--gold);
-            margin-bottom: 20px;
-            font-weight: 400;
-            text-transform: uppercase;
-        }
-
-        .declaration {
-            font-size: clamp(2.5rem, 6vw, 4.5rem);
-            font-weight: 800;
-            line-height: 1.1;
-            letter-spacing: -2px;
-            margin-bottom: 40px;
-            text-transform: uppercase;
-        }
+        h1 { font-size: 1rem; letter-spacing: 8px; color: var(--gold); text-transform: uppercase; margin-bottom: 20px; font-weight: 400; }
+        .declaration { font-size: clamp(2.5rem, 6vw, 4.5rem); font-weight: 800; line-height: 1.1; letter-spacing: -2px; margin-bottom: 40px; text-transform: uppercase; }
 
         /* Main CTA */
-        .cta-section {
-            padding: 60px 5%;
-            width: 100%;
-            display: flex;
-            justify-content: center;
-        }
-
+        .cta-section { padding: 60px 5%; width: 100%; display: flex; justify-content: center; }
         .btn-briefing {
-            display: inline-block;
-            padding: 22px 50px;
-            border: 2px solid var(--gold);
-            color: var(--gold);
-            text-decoration: none;
-            letter-spacing: 4px;
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            transition: all 0.3s ease;
-            font-weight: bold;
+            display: inline-block; padding: 22px 50px; border: 2px solid var(--gold); color: var(--gold); 
+            text-decoration: none; letter-spacing: 4px; font-size: 0.9rem; text-transform: uppercase; 
+            transition: all 0.3s ease; font-weight: bold;
         }
+        .btn-briefing:hover { background: var(--gold); color: var(--black); box-shadow: 0 0 40px var(--glow); }
 
-        .btn-briefing:hover {
-            background: var(--gold);
-            color: var(--black);
-            box-shadow: 0 0 40px var(--glow);
-        }
-
-        /* Clickable Grid System */
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            width: 100%;
-            border-top: 1px solid #222;
-        }
-
-        /* The Box as a Button */
+        /* Clickable Grid */
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); width: 100%; border-top: 1px solid #222; }
         .grid-item {
-            padding: 80px 40px;
-            border: 1px solid #222;
-            text-decoration: none; /* Removes underline from text */
-            color: inherit; /* Keeps text white */
-            display: flex;
-            flex-direction: column;
-            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-            position: relative;
-            background: var(--black);
+            padding: 80px 40px; border: 1px solid #222; text-decoration: none; color: inherit; 
+            display: flex; flex-direction: column; transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1); background: var(--black);
         }
+        .grid-item:hover { background: #0d0d0d; border-color: var(--gold); z-index: 10; box-shadow: inset 0 0 50px var(--glow); transform: translateY(-5px); }
 
-        .grid-item:hover {
-            background: #0d0d0d;
-            border-color: var(--gold);
-            z-index: 10;
-            box-shadow: inset 0 0 50px var(--glow);
-            transform: translateY(-5px);
-        }
+        .grid-item h3 { color: var(--gold); font-size: 1rem; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 20px; }
+        .grid-item p { color: var(--text-muted); font-size: 0.95rem; line-height: 1.7; margin-bottom: 20px; }
 
-        .grid-item h3 { 
-            color: var(--gold); 
-            font-size: 1rem; 
-            letter-spacing: 3px; 
-            text-transform: uppercase; 
-            margin-bottom: 20px; 
-            transition: 0.3s;
+        .btn-sub {
+            display: inline-block; padding: 10px 15px; border: 1px solid var(--gold); color: var(--gold);
+            font-size: 0.65rem; text-transform: uppercase; letter-spacing: 2px; text-decoration: none; transition: 0.3s;
         }
+        .btn-sub:hover { background: var(--gold); color: #000; }
 
-        .grid-item:hover h3 {
-            letter-spacing: 5px; /* Visual feedback on hover */
-        }
-
-        .grid-item p { 
-            color: var(--text-muted); 
-            font-size: 0.95rem; 
-            line-height: 1.7; 
-            margin: 0;
-        }
-
-        .click-hint {
-            margin-top: 30px;
-            font-size: 0.65rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: #333;
-            transition: 0.3s;
-        }
-
-        .grid-item:hover .click-hint {
-            color: var(--gold);
-        }
-
-        footer {
-            padding: 100px 20px;
-            color: #222;
-            font-size: 0.65rem;
-            letter-spacing: 3px;
-            text-align: center;
-            border-top: 1px solid #111;
-            width: 100%;
-        }
+        footer { padding: 100px 20px; color: #222; font-size: 0.65rem; letter-spacing: 3px; text-align: center; border-top: 1px solid #111; width: 100%; }
     </style>
 </head>
 <body>
@@ -166,26 +80,27 @@
     <section class="grid">
         <a href="maritime-lab.html" class="grid-item">
             <h3>01 // Maritime Synthesis</h3>
-            <p>Our autonomous fleets utilize solar-thermal processing to harvest PET and HDPE from oceanic gyres, converting global waste into graphene-infused structural blocks.</p>
-            <div class="click-hint">Initialize Lab Connection →</div>
+            <p>Thermal depolymerization of oceanic polymers into Graphene Structural Blocks (GSB).</p>
+            <span class="btn-sub">Open Lab Data</span>
         </a>
 
         <a href="lunar-lab.html" class="grid-item">
             <h3>02 // Lunar Logistics</h3>
-            <p>Blue-collar lunar operations focused on the maintenance of regolith extractors. Building supply chains that transcend terrestrial limits through labor-owned assets.</p>
-            <div class="click-hint">Initialize Logistics Feed →</div>
+            <p>Vanguard-class autonomous regolith extraction and extraterrestrial ISRU logistics.</p>
+            <span class="btn-sub">Open Logistics Feed</span>
         </a>
 
-        <a href="ledger-protocol.html" class="grid-item">
+        <div class="grid-item">
             <h3>03 // Surplus Distribution</h3>
-            <p>The Ledger is an immutable mathematical constant. 60% of all generated surplus is distributed directly to the labor force via the Hour-for-Hour protocol.</p>
-            <div class="click-hint">Review Ledger Protocol →</div>
-        </a>
+            <p>Immutable 60/40 distribution. Weekly stipends vs. Monthly equity retention.</p>
+            <div style="display: flex; gap: 10px;">
+                <a href="ledger-protocol.html" class="btn-sub">Review Ledger</a>
+                <a href="sovereign-ranks.html" class="btn-sub" style="border-color: #fff; color: #fff;">Tier Registry</a>
+            </div>
+        </div>
     </section>
 
-    <footer>
-        AETHELGARD GLOBAL // ARTICLE IV // SOVEREIGN INDUSTRIAL ERA // EST 2026
-    </footer>
+    <footer>AETHELGARD GLOBAL // ARTICLE IV // EST 2026</footer>
 
 </body>
 </html>

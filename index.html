@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,171 +8,221 @@
         :root {
             --gold: #d4af37;
             --black: #050505;
-            --grey: #111;
-            --red: #8b0000; /* For a stronger, "Working Class" call to action */
+            --industrial-grey: #1a1a1a;
+            --text-muted: #888;
         }
 
         body {
             background-color: var(--black);
-            color: #e0e0e0;
+            color: #fff;
             font-family: 'Inter', sans-serif;
             margin: 0;
-            line-height: 1.6;
-        }
-
-        /* Strong Typography */
-        h1, h2, h3 { text-transform: uppercase; letter-spacing: 4px; color: var(--gold); }
-        
-        .hero {
-            height: 90vh;
             display: flex;
             flex-direction: column;
-            justify-content: center;
             align-items: center;
+        }
+
+        /* Industrial Navigation */
+        nav {
+            width: 100%;
+            padding: 25px;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            border-bottom: 1px solid #222;
+            background: rgba(5, 5, 5, 0.9);
+        }
+
+        nav a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.7rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 100px 20px;
             text-align: center;
-            padding: 20px;
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('your-background-image.jpg');
-            background-size: cover;
+            max-width: 800px;
         }
 
-        .hero h1 { font-size: clamp(2.5rem, 10vw, 5rem); margin: 0; border-bottom: 2px solid var(--gold); }
-        .hero p { font-size: 1.2rem; max-width: 700px; color: #aaa; margin-top: 20px; }
-
-        /* The "Message to the Worker" Section */
-        .manifesto {
-            padding: 80px 10%;
-            background: var(--grey);
-            border-top: 1px solid var(--gold);
-            border-bottom: 1px solid var(--gold);
+        h1 {
+            font-size: 3.5rem;
+            letter-spacing: 15px;
+            margin: 0;
+            color: var(--gold);
+            font-weight: 200;
         }
 
-        .manifesto h2 { font-size: 2rem; color: #fff; }
-        .highlight { color: var(--gold); font-weight: bold; }
-
-        /* YouTube Container (Replace the ID below) */
-        .video-container {
-            max-width: 900px;
-            margin: 50px auto;
-            border: 1px solid #333;
-            box-shadow: 0 0 50px rgba(212, 175, 55, 0.1);
+        .tagline {
+            font-size: 0.9rem;
+            letter-spacing: 5px;
+            color: var(--text-muted);
+            margin-top: 15px;
+            text-transform: uppercase;
         }
 
-        .video-aspect {
-            position: relative;
-            padding-bottom: 56.25%;
-            height: 0;
+        /* The Minimalist Video Link Button */
+        .briefing-box {
+            margin: 60px 0;
+            padding: 40px;
+            border: 1px solid #222;
+            background: var(--industrial-grey);
+            width: 90%;
+            max-width: 600px;
+            text-align: center;
         }
 
-        .video-aspect iframe {
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
+        .btn-briefing {
+            display: inline-block;
+            padding: 15px 35px;
+            border: 1px solid var(--gold);
+            color: var(--gold);
+            text-decoration: none;
+            letter-spacing: 2px;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            transition: 0.3s;
         }
 
-        /* Image Slides Section (Instagram Style) */
-        .slides-container {
+        .btn-briefing:hover {
+            background: var(--gold);
+            color: var(--black);
+        }
+
+        /* Insights / Slide Section */
+        .insights-label {
+            width: 100%;
+            text-align: center;
+            padding: 40px 0;
+            color: var(--gold);
+            letter-spacing: 4px;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+        }
+
+        .slide-container {
             display: flex;
             overflow-x: auto;
             gap: 20px;
-            padding: 40px;
-            background: #000;
+            width: 100%;
+            padding: 0 5% 50px 5%;
+            scroll-snap-type: x mandatory;
         }
 
-        .slide-frame {
-            min-width: 350px;
-            border: 1px solid #222;
-            background: var(--grey);
-            padding: 10px;
-            transition: 0.3s;
-        }
+        .slide-container::-webkit-scrollbar { display: none; }
 
-        .slide-frame img { width: 100%; height: auto; display: block; }
-        .slide-frame:hover { border-color: var(--gold); transform: translateY(-5px); }
-
-        /* The Economic Charter Cards */
-        .charter-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-            padding: 40px 10%;
-        }
-
-        .charter-card {
+        .slide {
+            min-width: 320px;
+            height: 400px;
             background: #0a0a0a;
-            border-left: 4px solid var(--gold);
+            border: 1px solid #222;
+            scroll-snap-align: center;
+            display: flex;
+            align-items: flex-end;
             padding: 30px;
+            position: relative;
+        }
+        
+        /* Placeholder for your slide images */
+        .slide img {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            object-fit: cover;
+            opacity: 0.5;
         }
 
-        .btn-join {
-            display: inline-block;
-            background: var(--gold);
-            color: #000;
-            padding: 20px 40px;
-            text-decoration: none;
-            font-weight: bold;
-            text-transform: uppercase;
+        .slide-text { position: relative; z-index: 2; }
+
+        /* Infrastructure Section */
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            width: 90%;
+            max-width: 900px;
+            gap: 1px;
+            background: #222;
+            border: 1px solid #222;
+            margin-bottom: 100px;
+        }
+
+        .grid-item {
+            background: var(--black);
+            padding: 40px;
+        }
+
+        .grid-item h3 { color: var(--gold); font-size: 0.9rem; letter-spacing: 2px; margin-top: 0; }
+        .grid-item p { color: var(--text-muted); font-size: 0.8rem; line-height: 1.8; }
+
+        footer {
+            padding: 50px;
+            color: #333;
+            font-size: 0.6rem;
             letter-spacing: 2px;
-            margin-top: 30px;
-            transition: 0.3s;
+            text-align: center;
         }
-
-        .btn-join:hover { background: #fff; }
-
-        footer { text-align: center; padding: 60px; color: #444; font-size: 0.8rem; letter-spacing: 2px; }
     </style>
 </head>
 <body>
 
+    <nav>
+        <a href="#charter">Charter</a>
+        <a href="#insights">Insights</a>
+        <a href="mailto:admin@aethelgard.global">Protocol</a>
+    </nav>
+
     <section class="hero">
         <h1>AETHELGARD</h1>
-        <p>LABOR IS THE ONLY TRUE CURRENCY. THE LEDGER IS YOUR SOVEREIGNTY.</p>
-        <a href="mailto:admin@aethelgard.global" class="btn-join">Initialize Protocol</a>
+        <div class="tagline">Mining the Sea. Building the Stars.</div>
     </section>
 
-    <section class="manifesto">
-        <h2>A Message to the Collective</h2>
-        <p>You have been told that your value is determined by a boardroom. You have been told that your labor is a cost to be minimized. <span class="highlight">They were wrong.</span></p>
-        <p>Aethelgard is an economic engine designed to return the surplus to those who build the world. Mining the sea and building the stars isn't a dream—it's a technical roadmap.</p>
-    </section>
+    <div class="briefing-box">
+        <p style="font-size: 0.7rem; color: #555; margin-bottom: 20px; letter-spacing: 1px;">ENCRYPTED TRANSMISSION // 2026.04.12</p>
+        <h2 style="font-weight: 300; letter-spacing: 3px; margin-bottom: 30px;">THE SOVEREIGN BRIEFING</h2>
+        <a href="YOUR_YOUTUBE_LINK_HERE" class="btn-briefing" target="_blank">Access Video Briefing →</a>
+    </div>
 
-    <div class="video-container">
-        <div class="video-aspect">
-            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
+    <div class="insights-label" id="insights">Visual Roadmap / Field Data</div>
+    
+    <div class="slide-container">
+        <div class="slide">
+            <img src="slide1.jpg" alt="">
+            <div class="slide-text">
+                <div style="color: var(--gold); font-size: 0.6rem;">01</div>
+                <div style="letter-spacing: 2px; text-transform: uppercase;">Maritime Synthesis</div>
+            </div>
+        </div>
+        <div class="slide">
+            <img src="slide2.jpg" alt="">
+            <div class="slide-text">
+                <div style="color: var(--gold); font-size: 0.6rem;">02</div>
+                <div style="letter-spacing: 2px; text-transform: uppercase;">Lunar Extraction</div>
+            </div>
+        </div>
+        <div class="slide">
+            <img src="slide3.jpg" alt="">
+            <div class="slide-text">
+                <div style="color: var(--gold); font-size: 0.6rem;">03</div>
+                <div style="letter-spacing: 2px; text-transform: uppercase;">Ledger Surplus</div>
+            </div>
         </div>
     </div>
 
-    <section style="text-align: center; padding-top: 50px;">
-        <h2>Visual Roadmap</h2>
-        <p>Explore the slides of our future infrastructure.</p>
-    </section>
-
-    <div class="slides-container">
-        <div class="slide-frame">
-            <img src="slide1.jpg" alt="Strategic Slide 1">
-            <p style="padding: 10px; font-size: 0.8rem; color: var(--gold);">01 // THE OCEANIC INITIATIVE</p>
-        </div>
-        <div class="slide-frame">
-            <img src="slide2.jpg" alt="Strategic Slide 2">
-            <p style="padding: 10px; font-size: 0.8rem; color: var(--gold);">02 // THE LUNAR LEDGER</p>
-        </div>
-        <div class="slide-frame">
-            <img src="slide3.jpg" alt="Strategic Slide 3">
-            <p style="padding: 10px; font-size: 0.8rem; color: var(--gold);">03 // SURPLUS DISTRIBUTION</p>
-        </div>
-    </div>
-
-    <section class="charter-grid">
-        <div class="charter-card">
+    <section class="grid" id="charter">
+        <div class="grid-item">
             <h3>60% Labor Dividend</h3>
-            <p>We do not pay salaries. We distribute dividends. 60% of every credit earned goes directly to the contributor ledger.</p>
+            <p>Direct mathematical distribution to the workforce. No corporate dilution. No middle-men.</p>
         </div>
-        <div class="charter-card">
-            <h3>40% Infrastructure</h3>
-            <p>Automation and heavy-lifting assets are the communal property of the collective, ensuring infinite scalability.</p>
+        <div class="grid-item">
+            <h3>40% Asset Growth</h3>
+            <p>Scaling the autonomous fleet for oceanic processing and orbital logistics.</p>
         </div>
     </section>
 
     <footer>
-        AETHELGARD GLOBAL | ARTICLE IV PROTOCOL ACTIVE | WWW.AETHELGARD.GLOBAL
+        AETHELGARD GLOBAL SOVEREIGN COLLECTIVE // ARTICLE IV PROTOCOL SECURED
     </footer>
 
 </body>

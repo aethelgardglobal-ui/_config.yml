@@ -10,6 +10,7 @@
             --black: #050505;
             --grey: #121212;
             --text-muted: #777;
+            --glow: rgba(212, 175, 55, 0.15);
         }
 
         body {
@@ -23,7 +24,7 @@
             overflow-x: hidden;
         }
 
-        /* Hero / Declaration */
+        /* Hero Header */
         .hero {
             padding: 140px 10% 80px 10%;
             text-align: center;
@@ -48,24 +49,12 @@
             text-transform: uppercase;
         }
 
-        .manifesto {
-            font-size: 1.3rem;
-            line-height: 1.8;
-            color: #aaa;
-            max-width: 850px;
-            margin: 0 auto;
-            text-align: center;
-            border-top: 1px solid #222;
-            padding-top: 40px;
-        }
-
-        /* The Critical Link Button */
+        /* Main CTA */
         .cta-section {
             padding: 60px 5%;
             width: 100%;
             display: flex;
-            flex-direction: column;
-            align-items: center;
+            justify-content: center;
         }
 
         .btn-briefing {
@@ -84,76 +73,79 @@
         .btn-briefing:hover {
             background: var(--gold);
             color: var(--black);
-            box-shadow: 0 0 30px rgba(212, 175, 55, 0.3);
+            box-shadow: 0 0 40px var(--glow);
         }
 
-        /* Industrial Info Grid */
+        /* Clickable Grid System */
         .grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             width: 100%;
-            border-top: 1px solid #111;
+            border-top: 1px solid #222;
         }
 
+        /* The Box as a Button */
         .grid-item {
             padding: 80px 40px;
-            border: 1px solid #111;
-            transition: background 0.3s ease;
+            border: 1px solid #222;
+            text-decoration: none; /* Removes underline from text */
+            color: inherit; /* Keeps text white */
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            position: relative;
+            background: var(--black);
         }
-        
-        .grid-item:hover { background: #080808; }
 
-        .grid-item h3 { color: var(--gold); font-size: 1rem; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 20px; }
-        .grid-item p { color: var(--text-muted); font-size: 0.95rem; line-height: 1.7; flex-grow: 1; }
+        .grid-item:hover {
+            background: #0d0d0d;
+            border-color: var(--gold);
+            z-index: 10;
+            box-shadow: inset 0 0 50px var(--glow);
+            transform: translateY(-5px);
+        }
 
-        .lab-link {
+        .grid-item h3 { 
             color: var(--gold); 
-            text-decoration: none; 
-            font-size: 0.7rem; 
-            letter-spacing: 2px; 
+            font-size: 1rem; 
+            letter-spacing: 3px; 
             text-transform: uppercase; 
-            border-bottom: 1px solid var(--gold); 
-            padding-bottom: 5px; 
-            display: inline-block; 
-            margin-top: 25px;
-            width: fit-content;
+            margin-bottom: 20px; 
             transition: 0.3s;
         }
 
-        .lab-link:hover {
-            color: #fff;
-            border-bottom-color: #fff;
+        .grid-item:hover h3 {
+            letter-spacing: 5px; /* Visual feedback on hover */
         }
 
-        .highlight-box {
-            background: #0a0a0a;
-            border-left: 4px solid var(--gold);
-            padding: 40px;
-            margin: 40px 10%;
-            width: 80%;
-            max-width: 800px;
+        .grid-item p { 
+            color: var(--text-muted); 
+            font-size: 0.95rem; 
+            line-height: 1.7; 
+            margin: 0;
+        }
+
+        .click-hint {
+            margin-top: 30px;
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #333;
+            transition: 0.3s;
+        }
+
+        .grid-item:hover .click-hint {
+            color: var(--gold);
         }
 
         footer {
             padding: 100px 20px;
-            color: #333;
+            color: #222;
             font-size: 0.65rem;
             letter-spacing: 3px;
             text-align: center;
             border-top: 1px solid #111;
             width: 100%;
-        }
-
-        .status-tag {
-            color: #00ff00;
-            font-family: monospace;
-            font-size: 0.7rem;
-            margin-top: 20px;
-            display: block;
-            letter-spacing: 1px;
         }
     </style>
 </head>
@@ -165,49 +157,34 @@
             The world is built by labor, <br>
             <span style="color: var(--gold);">so it should be owned by labor.</span>
         </div>
-        <div class="manifesto">
-            We are the architects of a sovereign industrial era. Aethelgard dismantles the extractive hierarchies of old industry. Through oceanic synthesis and lunar extraction, we are reclaiming the machine for the benefit of the creator.
-        </div>
     </section>
 
     <section class="cta-section">
         <a href="briefing.html" class="btn-briefing">Access Project Briefing →</a>
-        <span class="status-tag">[ SECURE TERMINAL ACCESS ]</span>
     </section>
 
-    <div class="highlight-box">
-        <h3 style="color: var(--gold); text-transform: uppercase; letter-spacing: 2px;">The Sovereign Ledger Protocol</h3>
-        <p>Aethelgard replaces the salary model with <strong>Direct Equity</strong>. In this collective, every verified hour of labor is logged as a permanent, non-dilutable share of the system's total surplus. <strong>Hour for hour, you own what you build.</strong></p>
-    </div>
-
     <section class="grid">
-        <div class="grid-item">
-            <div>
-                <h3>01 // Maritime Synthesis</h3>
-                <p>Our autonomous fleets utilize solar-thermal processing to harvest PET and HDPE from oceanic gyres, converting global waste into graphene-infused structural blocks for deep-sea and terrestrial infrastructure.</p>
-            </div>
-            <a href="maritime-lab.html" class="lab-link">Open Lab Data →</a>
-        </div>
+        <a href="maritime-lab.html" class="grid-item">
+            <h3>01 // Maritime Synthesis</h3>
+            <p>Our autonomous fleets utilize solar-thermal processing to harvest PET and HDPE from oceanic gyres, converting global waste into graphene-infused structural blocks.</p>
+            <div class="click-hint">Initialize Lab Connection →</div>
+        </a>
 
-        <div class="grid-item">
-            <div>
-                <h3>02 // Lunar Logistics</h3>
-                <p>Blue-collar lunar operations focused on the maintenance of regolith extractors. We are building supply chains that transcend terrestrial limits, owned entirely by the personnel who maintain them.</p>
-            </div>
-            <a href="status.html" class="lab-link">Archive Offline →</a>
-        </div>
+        <a href="lunar-lab.html" class="grid-item">
+            <h3>02 // Lunar Logistics</h3>
+            <p>Blue-collar lunar operations focused on the maintenance of regolith extractors. Building supply chains that transcend terrestrial limits through labor-owned assets.</p>
+            <div class="click-hint">Initialize Logistics Feed →</div>
+        </a>
 
-        <div class="grid-item">
-            <div>
-                <h3>03 // Surplus Distribution</h3>
-                <p>The Ledger is an immutable mathematical constant. 60% of all generated surplus is distributed directly to the labor force in real-time. No boardrooms. No middle-men. No extraction.</p>
-            </div>
-            <a href="briefing.html" class="lab-link">Review Ledger Protocol →</a>
-        </div>
+        <a href="ledger-protocol.html" class="grid-item">
+            <h3>03 // Surplus Distribution</h3>
+            <p>The Ledger is an immutable mathematical constant. 60% of all generated surplus is distributed directly to the labor force via the Hour-for-Hour protocol.</p>
+            <div class="click-hint">Review Ledger Protocol →</div>
+        </a>
     </section>
 
     <footer>
-        AETHELGARD GLOBAL SOVEREIGN COLLECTIVE // ARTICLE IV PROTOCOL // EST 2026
+        AETHELGARD GLOBAL // ARTICLE IV // SOVEREIGN INDUSTRIAL ERA // EST 2026
     </footer>
 
 </body>

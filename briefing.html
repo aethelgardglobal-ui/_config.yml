@@ -5,77 +5,95 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AETHELGARD | Laboratory Briefing</title>
     <style>
-        :root { --gold: #d4af37; --black: #050505; --grey: #111; }
+        :root { --gold: #d4af37; --black: #050505; --grey: #111; --accent: #222; }
         body { background: var(--black); color: #fff; font-family: 'Inter', sans-serif; margin: 0; line-height: 1.6; }
-        nav { padding: 20px; border-bottom: 1px solid #222; display: flex; justify-content: space-between; position: sticky; top: 0; background: #050505; z-index: 100; }
-        nav a { color: var(--gold); text-decoration: none; font-size: 0.8rem; letter-spacing: 2px; }
-        .container { max-width: 900px; margin: 0 auto; padding: 60px 20px; }
         
-        /* The Share Protocol Section */
-        .protocol-box { border: 1px solid var(--gold); padding: 40px; margin: 40px 0; background: #0a0a0a; }
-        .share-math { font-size: 2.5rem; color: var(--gold); font-family: monospace; text-align: center; margin: 20px 0; }
+        nav { padding: 20px; border-bottom: 1px solid var(--accent); display: flex; justify-content: space-between; position: sticky; top: 0; background: var(--black); z-index: 100; }
+        nav a { color: var(--gold); text-decoration: none; font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase; }
+
+        .container { max-width: 1000px; margin: 0 auto; padding: 60px 20px; }
         
-        /* Lab Data Tabs Style */
-        .lab-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 40px; }
-        .lab-card { background: var(--grey); padding: 30px; border-top: 2px solid var(--gold); }
-        .lab-card h3 { margin-top: 0; font-size: 0.9rem; letter-spacing: 2px; color: var(--gold); text-transform: uppercase; }
-        
-        h1 { font-size: 3rem; letter-spacing: -1px; }
-        p { color: #888; }
+        h1 { font-size: clamp(2rem, 5vw, 3.5rem); letter-spacing: -1px; line-height: 1.1; margin-bottom: 40px; }
+        h2 { color: var(--gold); text-transform: uppercase; letter-spacing: 3px; font-size: 1.1rem; border-bottom: 1px solid var(--accent); padding-bottom: 10px; margin-top: 60px; }
+        p { color: #aaa; font-size: 1.05rem; }
         strong { color: #fff; }
 
-        /* External Links (These WILL open in new tabs) */
-        .external-link { color: var(--gold); text-decoration: underline; font-size: 0.9rem; margin-top: 10px; display: inline-block; }
+        .protocol-box { border: 1px solid var(--gold); padding: 40px; margin: 40px 0; background: #0a0a0a; box-shadow: 0 0 30px rgba(212, 175, 55, 0.05); }
+        .share-math { font-size: 3rem; color: var(--gold); font-family: monospace; text-align: center; margin: 20px 0; font-weight: bold; }
+
+        .lab-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-top: 40px; }
+        .lab-card { background: var(--grey); padding: 30px; border: 1px solid var(--accent); transition: 0.3s; }
+        .lab-card:hover { border-color: var(--gold); }
+        .lab-card h3 { margin-top: 0; font-size: 0.9rem; letter-spacing: 2px; color: var(--gold); text-transform: uppercase; }
+        
+        .external-link { color: var(--gold); text-decoration: none; font-size: 0.8rem; letter-spacing: 1px; border: 1px solid var(--gold); padding: 10px 15px; display: inline-block; margin-top: 20px; transition: 0.3s; }
+        .external-link:hover { background: var(--gold); color: var(--black); }
+
+        footer { text-align: center; padding: 80px 20px; color: #333; font-size: 0.6rem; letter-spacing: 2px; border-top: 1px solid var(--accent); margin-top: 100px; }
     </style>
 </head>
 <body>
 
 <nav>
-    <a href="index.html">← RETURN TO MAIN TERMINAL</a>
-    <div style="font-size: 0.7rem; color: #444;">DOC_ID: ATH-LAB-001</div>
+    <a href="index.html">← RETURN TO TERMINAL</a>
+    <div style="font-size: 0.7rem; color: #444; font-family: monospace;">DOC_ID: ATH-LAB-DATA-2026</div>
 </nav>
 
 <div class="container">
-    <h1>Project Briefing: <br>Labor-Sovereign Infrastructure</h1>
+    <div style="color: var(--gold); font-family: monospace; font-size: 0.8rem; margin-bottom: 10px;">[ INTERNAL USE ONLY // SOVEREIGN CLASSIFIED ]</div>
+    <h1>Laboratory Briefing: <br>The Industrial Evolution</h1>
     
     <section>
         <h2>01 // The Hour-for-Hour Protocol</h2>
-        <p>Aethelgard is built on the <strong>Proof of Labor</strong> principle. We have moved past the salary model. In this collective, every verified hour of work is a permanent share in the system's output.</p>
+        <p>Aethelgard operates on <strong>Absolute Equity</strong>. We have replaced the traditional salary—which is a fixed price for your life—with <strong>Work Credits</strong>. Every verified hour contributes to the total value of the collective.</p>
         
         <div class="protocol-box">
-            <div style="text-align: center; font-size: 0.7rem; letter-spacing: 3px; color: var(--gold);">LEDGER CALCULATION</div>
-            <div class="share-math">1 HOUR = 1 SHARE</div>
-            <p style="text-align: center; font-size: 0.8rem;">Non-dilutable. Transferable. Sovereign.</p>
+            <div style="text-align: center; font-size: 0.7rem; letter-spacing: 4px; color: var(--gold); text-transform: uppercase;">Ownership Protocol ARTICLE IV</div>
+            <div class="share-math">1 HR = 1 SHARE</div>
+            <p style="text-align: center; font-size: 0.9rem; letter-spacing: 1px;">Shares are permanent, non-dilutable, and transferable within the Sovereign Ledger.</p>
         </div>
         
-        <p>This means if you spend 40 hours repairing a regolith extractor, you own 40 shares of the future surplus generated by that machine. <strong>Hour for hour, you own what you build.</strong></p>
+        <p>This is hour-for-hour sovereignty. If you build the regolith extractor for 100 hours, you own 100 shares of every gram of lunar material that machine ever processes. <strong>You are the owner of your time.</strong></p>
     </section>
 
     <section>
-        <h2>02 // Laboratory Information</h2>
+        <h2>02 // Current Laboratory Data</h2>
         <div class="lab-grid">
             <div class="lab-card">
-                <h3>Maritime Synthesis Lab</h3>
-                <p>Developing <strong>Graphene-infused blocks</strong> from oceanic PET/HDPE waste. These blocks provide 4x the structural integrity of standard concrete for lunar habitat shells.</p>
-                <a href="https://www.instagram.com/aethelgard" target="_blank" class="external-link">View Lab Slides (Instagram) →</a>
+                <h3>Maritime Synthesis</h3>
+                <p><strong>Status:</strong> Active Testing. <br>Converting ocean-harvested PET/HDPE into Graphene-Structural blocks. These blocks are engineered for zero-oxygen environments and deep-sea pressure.</p>
+                <a href="https://www.instagram.com/aethelgard" target="_blank" class="external-link">VIEW SLIDES →</a>
             </div>
             <div class="lab-card">
-                <h3>Extraction Dynamics</h3>
-                <p>Testing torque-resistance in low-gravity environments. Our <strong>Blue-Collar Astronauts</strong> are currently refining the self-cooling mechanism on the 'Vanguard' extractor.</p>
-                <a href="https://www.youtube.com/@aethelgard" target="_blank" class="external-link">Watch Field Testing (YouTube) →</a>
+                <h3>Lunar Extraction</h3>
+                <p><strong>Status:</strong> Deployment Prep. <br>Our 'Vanguard' crawlers utilize low-vibration drilling to prevent lunar-dust contamination of sensitive seals. Blue-collar astronauts are the primary operators.</p>
+                <a href="https://www.youtube.com/@aethelgard" target="_blank" class="external-link">WATCH FIELD TEST →</a>
             </div>
         </div>
     </section>
 
-    <section style="margin-top: 80px; border-top: 1px solid #222; padding-top: 40px;">
-        <h2>03 // Aspiring Projects</h2>
-        <p>Our vision extends beyond Earth's orbit. We are currently mapping the <strong>Lunar Spire</strong>—a logistics hub designed to facilitate 100% recycled supply chains between the Pacific gyres and the lunar poles.</p>
-        <p>This is not a corporate dream. It is a technical roadmap. <strong>Join the protocol.</strong></p>
+    <section>
+        <h2>03 // Aspiring Projects & Strategic Goals</h2>
+        <div class="lab-grid">
+            <div class="lab-card">
+                <h3>Project: The Lunar Spire</h3>
+                <p>A vertical logistics hub at the lunar south pole. Using Graphene-infused blocks to build a radiation-shielded habitat and launch pad for deep-space missions.</p>
+            </div>
+            <div class="lab-card">
+                <h3>Project: Sovereign Mesh</h3>
+                <p>A decentralized communication layer. Utilizing low-earth orbit recycled satellites to provide encrypted data for Aethelgard workers anywhere in the solar system.</p>
+            </div>
+            <div class="lab-card">
+                <h3>Project: HDPE Synthesis</h3>
+                <p>Automated drone swarms capable of identifying and capturing 5,000 tons of plastic waste annually from the Great Pacific Garbage Patch.</p>
+            </div>
+        </div>
+        <p style="margin-top: 40px;">This is not just a company—it is the blueprint for a labor-owned future. <strong>The world is built by labor, so it should be owned by labor.</strong></p>
     </section>
 </div>
 
 <footer>
-    <div style="text-align: center; padding: 40px; color: #222; font-size: 0.6rem; letter-spacing: 2px;">AETHELGARD GLOBAL // ARTICLE IV SECURED</div>
+    AETHELGARD GLOBAL // THE SOVEREIGN LEDGER // ARTICLE IV SECURED
 </footer>
 
 </body>

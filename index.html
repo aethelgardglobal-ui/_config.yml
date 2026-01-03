@@ -29,15 +29,15 @@
         /* Navigation */
         nav {
             width: 100%;
-            padding: 30px;
+            padding: 20px;
             display: flex;
             justify-content: center;
             gap: 25px;
             position: fixed;
             top: 0;
             z-index: 1000;
-            background: rgba(5, 5, 5, 0.8);
-            backdrop-filter: blur(10px);
+            background: rgba(5, 5, 5, 0.9);
+            backdrop-filter: blur(15px);
             border-bottom: 1px solid #111;
         }
 
@@ -65,26 +65,25 @@
         }
 
         .logo-ring {
-            width: 100px;
-            height: 100px;
+            width: 80px;
+            height: 80px;
             border: 1px solid var(--gold);
             border-radius: 50%;
-            margin-bottom: 30px;
+            margin-bottom: 20px;
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 0 30px rgba(212, 175, 55, 0.1);
             animation: breathe 4s infinite ease-in-out;
         }
 
         @keyframes breathe {
             0% { transform: scale(1); opacity: 0.7; }
-            50% { transform: scale(1.05); opacity: 1; box-shadow: 0 0 50px rgba(212, 175, 55, 0.3); }
+            50% { transform: scale(1.05); opacity: 1; box-shadow: 0 0 30px rgba(212, 175, 55, 0.2); }
             100% { transform: scale(1); opacity: 0.7; }
         }
 
         h1 {
-            font-size: 3rem;
+            font-size: clamp(2rem, 8vw, 4rem);
             letter-spacing: 12px;
             margin: 0;
             font-weight: 200;
@@ -92,136 +91,171 @@
             text-transform: uppercase;
         }
 
-        .tagline {
-            font-size: 0.9rem;
-            color: var(--text-muted);
-            letter-spacing: 4px;
-            margin-top: 10px;
-            text-transform: uppercase;
+        /* Video Bridge Section */
+        .video-section {
+            width: 100%;
+            max-width: 1000px;
+            margin: -100px 0 50px 0;
+            z-index: 10;
+            padding: 0 20px;
         }
 
-        .status-container { margin: 40px 0; font-family: 'Courier New', monospace; }
-        #status { font-size: 1.8rem; letter-spacing: 5px; color: #fff; text-transform: uppercase; }
-        .status-label { font-size: 0.6rem; color: var(--gold); letter-spacing: 2px; margin-top: 5px; text-align: center;}
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+            overflow: hidden;
+            border-radius: 4px;
+            background: #000;
+            border: 1px solid #222;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+        }
 
-        .cta-group { display: flex; gap: 15px; margin-top: 20px; }
-        .btn { padding: 12px 30px; text-decoration: none; text-transform: uppercase; letter-spacing: 2px; font-size: 0.75rem; border: 1px solid var(--gold); transition: 0.3s; }
-        .btn-primary { background: var(--gold); color: var(--black); }
-        .btn-primary:hover { background: transparent; color: var(--gold); }
-        .btn-secondary { color: var(--gold); }
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
 
-        /* Content Sections */
+        /* Instagram-style Slide Gallery */
+        .slide-gallery {
+            width: 100%;
+            padding: 50px 0;
+            background: #080808;
+            overflow: hidden;
+        }
+
+        .slide-track {
+            display: flex;
+            overflow-x: auto;
+            gap: 20px;
+            padding: 20px;
+            scroll-snap-type: x mandatory;
+            scrollbar-width: none; /* Hide scrollbar Firefox */
+        }
+
+        .slide-track::-webkit-scrollbar { display: none; } /* Hide scrollbar Chrome/Safari */
+
+        .slide-card {
+            min-width: 300px;
+            height: 400px;
+            background: var(--card-bg);
+            border: 1px solid #222;
+            flex-shrink: 0;
+            scroll-snap-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 30px;
+            transition: 0.4s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .slide-card:hover { border-color: var(--gold); }
+        .slide-card h4 { color: var(--gold); margin-bottom: 10px; text-transform: uppercase; letter-spacing: 1px; }
+        .slide-card p { font-size: 0.8rem; color: #777; margin: 0; }
+
+        /* General Section Styling */
         .section { max-width: 900px; width: 90%; padding: 100px 0; line-height: 1.8; border-bottom: 1px solid #111; }
         .section h2 { color: var(--gold); letter-spacing: 4px; text-transform: uppercase; font-weight: 400; font-size: 1.5rem; margin-bottom: 40px;}
         
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin-top: 40px; }
         .card { background: var(--card-bg); border: 1px solid #222; padding: 30px; transition: 0.3s; }
-        .card:hover { border-color: var(--gold); }
         .card h3 { color: #fff; font-size: 1rem; letter-spacing: 2px; text-transform: uppercase; margin-top: 0; }
-        .card p { color: #777; font-size: 0.85rem; margin-bottom: 0; }
 
-        .constitution-box { background: #0a0a0a; border-left: 3px solid var(--gold); padding: 30px; margin-top: 40px; font-size: 0.9rem; }
-        
         .footer { padding: 80px 20px; text-align: center; color: #444; font-size: 0.65rem; letter-spacing: 1px; width: 100%; background: #030303; line-height: 2;}
 
-        @media (max-width: 600px) {
-            h1 { font-size: 1.8rem; letter-spacing: 6px; }
-            nav { gap: 10px; padding: 15px; }
-            nav a { font-size: 0.55rem; }
-        }
+        .btn { padding: 12px 30px; text-decoration: none; text-transform: uppercase; letter-spacing: 2px; font-size: 0.75rem; border: 1px solid var(--gold); transition: 0.3s; display: inline-block; margin-top: 20px;}
+        .btn-primary { background: var(--gold); color: var(--black); }
     </style>
 </head>
 <body>
-
+    
     <nav>
         <a href="#charter">Charter</a>
-        <a href="#divisions">Divisions</a>
-        <a href="#council">Council</a>
+        <a href="#briefing">Briefing</a>
+        <a href="#insights">Insights</a>
         <a href="mailto:admin@aethelgard.global">Initialize</a>
     </nav>
 
     <section class="hero">
         <div class="logo-ring">
-            <span style="font-size: 0.6rem; color: var(--gold);">SECURED</span>
+            <span style="font-size: 0.5rem; color: var(--gold); letter-spacing: 1px;">ACTIVE</span>
         </div>
         <h1>AETHELGARD</h1>
-        <div class="tagline">Mining the Sea. Building the Stars.</div>
-
-        <div class="status-container">
-            <div id="status">LEDGER ONLINE</div>
-            <div class="status-label">PROTOCOL ARTICLE IV ACTIVE</div>
+        <div style="font-size: 0.8rem; color: var(--text-muted); letter-spacing: 5px; text-transform: uppercase;">
+            The Sovereign Economic Collective
         </div>
+        <div style="margin-top: 30px; font-family: monospace; color: var(--gold); font-size: 1.2rem;" id="ledger-counter">
+            LDR: 492,031.00
+        </div>
+    </section>
 
-        <div class="cta-group">
-            <a href="mailto:admin@aethelgard.global" class="btn btn-primary">Join Collective</a>
-            <a href="#charter" class="btn btn-secondary">Read Charter</a>
+    <section class="video-section" id="briefing">
+        <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=0&controls=1&rel=0" allowfullscreen></iframe>
+        </div>
+        <div style="text-align: center; margin-top: 30px;">
+            <p style="color: var(--text-muted); font-size: 0.8rem; letter-spacing: 2px;">PROTOCOL BRIEFING 001: GLOBAL SYNTHESIS</p>
+        </div>
+    </section>
+
+    <section class="slide-gallery" id="insights">
+        <h2 style="text-align: center; color: var(--gold); letter-spacing: 5px; font-size: 1rem; text-transform: uppercase;">Sovereign Insights</h2>
+        <div class="slide-track">
+            <div class="slide-card">
+                <h4>01. Oceanic Synthesis</h4>
+                <p>Repurposing oceanic polymers into graphene-infused structural blocks for deep-sea habitats.</p>
+            </div>
+            <div class="slide-card">
+                <h4>02. 60/40 Labor Law</h4>
+                <p>A mathematical guarantee that 60% of all generated surplus is instantly distributed to the contributors.</p>
+            </div>
+            <div class="slide-card">
+                <h4>03. Lunar Logistics</h4>
+                <p>Automated solar arrays fueling the next generation of orbital heavy-lifting supply chains.</p>
+            </div>
+            <div class="slide-card">
+                <h4>04. The Ledger</h4>
+                <p>Transparent, real-time accounting that removes the middle-man and secures your value.</p>
+            </div>
         </div>
     </section>
 
     <section class="section" id="charter">
         <h2>The Economic Charter</h2>
-        <p>Aethelgard is a sovereign economic collective. We have eliminated the traditional corporate hierarchy in favor of a mathematical surplus distribution protocol.</p>
-        
+        <p>Aethelgard operates via a mathematical surplus distribution protocol. No hierarchy. No boardrooms. Just code and contribution.</p>
         <div class="grid">
-            <div class="card" style="border-bottom: 3px solid var(--gold);">
+            <div class="card" style="border-bottom: 2px solid var(--gold);">
                 <h3>60% Labor Dividend</h3>
-                <p>Distributed to those whose physical and intellectual labor powers the collective. Paid in real-time via the Sovereign Ledger.</p>
+                <p>Real-time distribution to the intellectual and physical labor force.</p>
             </div>
-            <div class="card" style="border-bottom: 3px solid #444;">
+            <div class="card" style="border-bottom: 2px solid #333;">
                 <h3>40% Infrastructure</h3>
-                <p>Allocated toward the acquisition of maritime processing vessels, lunar heavy-lifting, and automated solar arrays.</p>
+                <p>Automated reinvestment into oceanic and orbital expansion assets.</p>
             </div>
         </div>
-    </section>
-
-    <section class="section" id="divisions">
-        <h2>Strategic Divisions</h2>
-        <div class="grid">
-            <div class="card">
-                <h3>Maritime Synthesis</h3>
-                <p>Autonomous fleets harvesting HDPE from oceanic gyres, converting waste into structural graphene-infused blocks.</p>
-            </div>
-            <div class="card">
-                <h3>Orbital Logistics</h3>
-                <p>Low-earth orbit supply chains utilizing recycled terrestrial polymers for zero-waste space station construction.</p>
-            </div>
-            <div class="card">
-                <h3>The Ledger</h3>
-                <p>A transparent, immutable accounting protocol that ensures every credit earned is a credit owned by the worker.</p>
-            </div>
-        </div>
-    </section>
-
-    <section class="section" id="council">
-        <h2>The Council of Five</h2>
-        <p>Aethelgard is not led by a CEO, but moderated by the Council—five elected custodians who ensure the Ledger remains true to its origin.</p>
-        <div class="grid">
-            <div class="card">
-                <h3>The Founder</h3>
-                <p>Chief Architect of the 60/40 Protocol.</p>
-            </div>
-            <div class="card">
-                <h3>Operations</h3>
-                <p>Fleet Command & Lunar Logistics.</p>
-            </div>
-            <div class="card">
-                <h3>Ethics</h3>
-                <p>Sovereignty & Labor Rights Custodian.</p>
-            </div>
-        </div>
-        
-        <div class="constitution-box">
-            <strong>CURRENT VOTE: PROPOSAL #001</strong><br>
-            Deployment of the first "Vanguard Class" processing ship. <br>
-            <span style="color: var(--gold);">VOTING OPEN TO ALL HOLDERS</span>
-        </div>
+        <a href="mailto:admin@aethelgard.global" class="btn btn-primary">Initialize Membership</a>
     </section>
 
     <footer class="footer">
         AETHELGARD GLOBAL SOVEREIGN COLLECTIVE<br>
-        PROTOCOL: ARTICLE IV SECURED | EST. 2026<br>
-        <span style="color: #222;">SYSTEM STABLE</span>
+        PROTOCOL: ARTICLE IV SECURED | WWW.AETHELGARD.GLOBAL<br>
+        <span style="color: #222;">EST. 2026 | SYSTEM STABLE</span>
     </footer>
+
+    <script>
+        // A simple script to make the Ledger look active
+        let counter = 492031.00;
+        setInterval(() => {
+            counter += Math.random() * 0.5;
+            document.getElementById('ledger-counter').innerText = 'LDR: ' + counter.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2});
+        }, 3000);
+    </script>
 
 </body>
 </html>

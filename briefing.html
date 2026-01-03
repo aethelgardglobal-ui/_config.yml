@@ -1,145 +1,165 @@
-<a href="briefing.html" class="btn-briefing" onclick="this.innerHTML='INITIALIZING ACCESS...';">
-    Access Project Briefing →
-</a>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AETHELGARD | Project Briefing</title>
+    <title>AETHELGARD | Technical Briefing Room</title>
     <style>
         :root {
             --gold: #d4af37;
             --black: #050505;
             --grey: #121212;
             --accent: #222;
+            --border-glow: rgba(212, 175, 55, 0.2);
         }
 
         body {
             background-color: var(--black);
-            color: #eee;
+            color: #e0e0e0;
             font-family: 'Inter', -apple-system, sans-serif;
             margin: 0;
             line-height: 1.8;
         }
 
-        /* Navigation */
+        /* Terminal Style Header */
         nav {
             padding: 20px 5%;
             border-bottom: 1px solid var(--accent);
             display: flex;
             justify-content: space-between;
-            background: rgba(5,5,5,0.9);
+            align-items: center;
+            background: rgba(5,5,5,0.95);
             position: sticky;
             top: 0;
+            z-index: 100;
         }
 
-        nav a { color: var(--gold); text-decoration: none; font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase; }
+        nav a { color: var(--gold); text-decoration: none; font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase; border: 1px solid var(--gold); padding: 8px 15px; transition: 0.3s; }
+        nav a:hover { background: var(--gold); color: var(--black); }
 
-        /* Main Content */
-        .container { max-width: 900px; margin: 0 auto; padding: 80px 5%; }
+        .container { max-width: 1000px; margin: 0 auto; padding: 60px 5%; }
 
-        .header-block { border-left: 3px solid var(--gold); padding-left: 30px; margin-bottom: 60px; }
-        h1 { font-size: 2.5rem; letter-spacing: -1px; margin: 0; text-transform: uppercase; }
-        .serial { font-family: monospace; color: var(--gold); font-size: 0.9rem; }
+        .status-header { border-left: 2px solid var(--gold); padding-left: 30px; margin-bottom: 80px; }
+        .status-header h1 { font-size: 3rem; letter-spacing: -2px; margin: 0; text-transform: uppercase; color: #fff; }
+        .serial { font-family: monospace; color: var(--gold); font-size: 0.8rem; letter-spacing: 3px; }
 
-        /* Section Styling */
-        section { margin-bottom: 80px; }
-        h2 { color: var(--gold); text-transform: uppercase; letter-spacing: 3px; font-size: 1.2rem; border-bottom: 1px solid var(--accent); padding-bottom: 10px; }
+        /* Lab Sections */
+        section { margin-bottom: 100px; }
+        h2 { color: var(--gold); text-transform: uppercase; letter-spacing: 4px; font-size: 1.1rem; margin-bottom: 30px; border-bottom: 1px solid var(--accent); padding-bottom: 10px; }
 
-        /* Technical Data Grid */
-        .tech-specs {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-            margin: 30px 0;
-        }
+        /* The Lab Data Table */
+        .lab-table { width: 100%; border-collapse: collapse; margin: 20px 0; background: var(--grey); border: 1px solid var(--accent); }
+        .lab-table th, .lab-table td { padding: 20px; text-align: left; border: 1px solid var(--accent); }
+        .lab-table th { color: var(--gold); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 2px; }
 
-        .spec-item { background: var(--grey); padding: 25px; border: 1px solid var(--accent); }
-        .spec-label { color: var(--gold); font-family: monospace; font-size: 0.7rem; display: block; margin-bottom: 10px; }
+        /* Info Cards */
+        .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+        .info-card { background: var(--grey); padding: 30px; border-top: 3px solid var(--gold); }
+        .info-card h3 { font-size: 1rem; margin-top: 0; color: #fff; letter-spacing: 1px; }
 
-        /* The Hour-for-Hour Protocol */
-        .protocol-highlight {
-            background: linear-gradient(45deg, #111, #1a1a1a);
+        /* The Protocol Box */
+        .protocol-callout {
+            background: linear-gradient(135deg, #0a0a0a 0%, #151515 100%);
             border: 1px solid var(--gold);
-            padding: 40px;
-            margin: 40px 0;
-        }
-
-        .share-math {
-            font-size: 2rem;
-            font-weight: 800;
+            padding: 50px;
             text-align: center;
-            margin: 20px 0;
-            color: var(--gold);
-            font-family: monospace;
+            box-shadow: 0 0 40px var(--border-glow);
+            margin: 50px 0;
         }
 
-        footer { padding: 60px; text-align: center; color: #333; font-size: 0.7rem; border-top: 1px solid var(--accent); }
+        .protocol-math { font-size: 2.5rem; font-weight: 900; color: var(--gold); font-family: monospace; margin: 20px 0; }
 
+        footer { padding: 80px 20px; text-align: center; color: #333; font-size: 0.65rem; letter-spacing: 2px; }
+
+        @media (max-width: 768px) {
+            .status-header h1 { font-size: 2rem; }
+            .info-grid { grid-template-columns: 1fr; }
+        }
     </style>
 </head>
 <body>
 
     <nav>
-        <a href="index.html">← Return to Main Terminal</a>
-        <span class="serial">DOC ID: ATH-2026-X1</span>
+        <a href="index.html">RETURN TO TERMINAL</a>
+        <div class="serial">SYSTEM: SECURE // ARTICLE IV</div>
     </nav>
 
     <div class="container">
-        <div class="header-block">
-            <div class="serial">TRANSMISSION TYPE: FULL DISCLOSURE</div>
-            <h1>Project Briefing: The Sovereign Shift</h1>
-            <p>Subject: Integration of Labor and Ownership via the Aethelgard Protocol.</p>
+        
+        <div class="status-header">
+            <div class="serial">TRANSMISSION ID: ATH-004-2026</div>
+            <h1>The Sovereign Briefing</h1>
+            <p style="color: #888; max-width: 600px;">Full technical disclosure for collective personnel regarding oceanic synthesis, lunar operations, and the Hour-for-Hour Ledger protocol.</p>
         </div>
 
-        <section id="mission-history">
-            <h2>01 // The Origin Mission</h2>
-            <p>Aethelgard was founded on the rejection of the "Rent-Seeker" economy. Traditional industrial models extract value from the worker to pay the shareholder. In our model, <strong>the worker is the shareholder.</strong></p>
-            <p>We are tackling the two greatest frontiers of resource acquisition: the oceanic waste gyres and the lunar regolith. These are not just environmental or scientific goals; they are the fuel for a new, independent economy.</p>
+        <section>
+            <h2>01 // Project History & Evolution</h2>
+            <p>Aethelgard began as a response to the "extraction" model of 20th-century industry. We recognized that while labor built the world, capital owned it. Our original mission was to create a <strong>Labor-Sovereign Environment</strong> where technology serves the creator, not the investor.</p>
+            <p>From our first simulations of maritime polymer recycling to the current deployment of lunar regolith crawlers, the goal has remained unchanged: The worker is the only shareholder.</p>
         </section>
 
-        <section id="labor-protocol">
-            <h2>02 // Hour-for-Hour Shares</h2>
-            <p>The core of the Sovereign Ledger is the 1:1 Labor-to-Equity ratio. We have eliminated complex vesting schedules and corporate stock options in favor of a mathematical constant:</p>
-            
-            <div class="protocol-highlight">
-                <div class="share-math">1 HR LABOR = 1 SOVEREIGN SHARE</div>
-                <p style="text-align: center; font-size: 0.9rem; color: #888;">Shares are non-dilutable and issued instantly upon verification of task completion within the Ledger.</p>
+        <section>
+            <h2>02 // Laboratory Data: Maritime Synthesis</h2>
+            <p>The <strong>Vanguard-1</strong> fleets are currently processing HDPE and PET waste into Graphene-Structural Blocks (GSB). This data represents our latest field efficiency tests.</p>
+            <table class="lab-table">
+                <thead>
+                    <tr>
+                        <th>Metric</th>
+                        <th>Vanguard-1 Performance</th>
+                        <th>Standard Comparison</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Compressive Strength</td>
+                        <td>88.5 MPa</td>
+                        <td>30 MPa (Concrete)</td>
+                    </tr>
+                    <tr>
+                        <td>Thermal Resistance</td>
+                        <td>Up to 1,200°C</td>
+                        <td>600°C (Steel Structural)</td>
+                    </tr>
+                    <tr>
+                        <td>Production Cost</td>
+                        <td>0.04 Ledger Credits</td>
+                        <td>0.45 Credits (Industrial Avg)</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section>
+            <div class="protocol-callout">
+                <h2>The Sovereign Ledger Protocol</h2>
+                <p>The core mathematical constant of our collective. Every hour of verified labor creates an immutable share of the total surplus.</p>
+                <div class="protocol-math">1 HR = 1 SHARE</div>
+                <p style="font-size: 0.9rem; color: #888;">Shares are non-dilutable. 60% of all generated surplus is distributed to these shares month-over-month.</p>
             </div>
-
-            <p>Whether you are an engineer optimizing a depolymerization reactor or a technician maintaining a lunar extractor, your time is your capital. 60% of all surplus generated by Aethelgard assets is distributed back to these shares monthly.</p>
         </section>
 
-        <section id="technical-data">
-            <h2>03 // Laboratory Data & Specs</h2>
-            <div class="tech-specs">
-                <div class="spec-item">
-                    <span class="spec-label">PROJECT: BLUE VANGUARD</span>
-                    <strong>Oceanic Processing</strong>
-                    <p style="font-size: 0.85rem; color: #888;">Harvesting HDPE/PET. Conversion to Graphene-enhanced polymers for structural use.</p>
+        <section>
+            <h2>03 // Aspiring Projects & Future Lab Goals</h2>
+            <div class="info-grid">
+                <div class="info-card">
+                    <h3>Project: Lunar Spire</h3>
+                    <p>Construction of a low-gravity elevator utilizing GSB (Graphene Blocks) for cost-effective transport of lunar minerals into orbit.</p>
                 </div>
-                <div class="spec-item">
-                    <span class="spec-label">PROJECT: REGOLITH ALPHA</span>
-                    <strong>Lunar Extraction</strong>
-                    <p style="font-size: 0.85rem; color: #888;">Helium-3 and Silicate mining via autonomous Vanguard-class crawlers.</p>
+                <div class="info-card">
+                    <h3>The Deep Hub</h3>
+                    <p>Self-sustaining maritime habitats that act as both recycling centers and permanent homes for Aethelgard personnel.</p>
                 </div>
-            </div>
-        </section>
-
-        <section id="join">
-            <h2>04 // Immediate Action</h2>
-            <p>We are currently recruiting for the <strong>Initialization Phase</strong>. We need industrial engineers, software architects, and field technicians who are tired of building someone else's empire.</p>
-            <p>Send your credentials and area of expertise to the administrative hub to begin the protocol.</p>
-            <div style="text-align: center; margin-top: 40px;">
-                <a href="mailto:admin@aethelgard.global" style="color: var(--gold); text-decoration: none; border: 1px solid var(--gold); padding: 15px 30px; text-transform: uppercase; letter-spacing: 2px;">Contact Admin</a>
+                <div class="info-card">
+                    <h3>Regolith Refining</h3>
+                    <p>Aspiring to extract Helium-3 for clean energy production, distributed via the Ledger for the benefit of the labor class.</p>
+                </div>
             </div>
         </section>
 
     </div>
 
     <footer>
-        AETHELGARD GLOBAL // ARTICLE IV // SOVEREIGN OWNERSHIP PROTOCOL
+        AETHELGARD GLOBAL // THE WORLD IS BUILT BY LABOR // EST. 2026
     </footer>
 
 </body>

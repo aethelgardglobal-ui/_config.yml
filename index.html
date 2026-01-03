@@ -9,8 +9,7 @@
             --gold: #d4af37;
             --black: #050505;
             --grey: #121212;
-            --text-muted: #777;
-            --glow: rgba(212, 175, 55, 0.15);
+            --glow: rgba(212, 175, 55, 0.2);
         }
 
         body {
@@ -21,49 +20,61 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            overflow-x: hidden;
         }
 
-        /* Hero Header */
-        .hero {
-            padding: 140px 10% 80px 10%;
-            text-align: center;
-            max-width: 1000px;
+        /* Sovereign Access Bar */
+        .access-bar {
+            width: 100%;
+            padding: 15px 5%;
+            background: #0a0a0a;
+            border-bottom: 1px solid #222;
+            display: flex;
+            justify-content: flex-end;
+            gap: 15px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
 
-        h1 { font-size: 1rem; letter-spacing: 8px; color: var(--gold); text-transform: uppercase; margin-bottom: 20px; font-weight: 400; }
+        .btn-access {
+            padding: 10px 20px;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-decoration: none;
+            border: 1px solid #333;
+            transition: 0.3s;
+            font-weight: bold;
+        }
+
+        .btn-gold { border-color: var(--gold); color: var(--gold); }
+        .btn-gold:hover { background: var(--gold); color: #000; }
+        .btn-white { border-color: #fff; color: #fff; }
+        .btn-white:hover { background: #fff; color: #000; }
+
+        .hero { padding: 100px 10% 60px 10%; text-align: center; max-width: 1000px; }
+        h1 { font-size: 1rem; letter-spacing: 8px; color: var(--gold); text-transform: uppercase; margin-bottom: 20px; }
         .declaration { font-size: clamp(2.5rem, 6vw, 4.5rem); font-weight: 800; line-height: 1.1; letter-spacing: -2px; margin-bottom: 40px; text-transform: uppercase; }
 
-        /* Main CTA */
-        .cta-section { padding: 60px 5%; width: 100%; display: flex; justify-content: center; }
-        .btn-briefing {
-            display: inline-block; padding: 22px 50px; border: 2px solid var(--gold); color: var(--gold); 
-            text-decoration: none; letter-spacing: 4px; font-size: 0.9rem; text-transform: uppercase; 
-            transition: all 0.3s ease; font-weight: bold;
-        }
-        .btn-briefing:hover { background: var(--gold); color: var(--black); box-shadow: 0 0 40px var(--glow); }
-
-        /* Clickable Grid */
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); width: 100%; border-top: 1px solid #222; }
         .grid-item {
             padding: 80px 40px; border: 1px solid #222; text-decoration: none; color: inherit; 
-            display: flex; flex-direction: column; transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1); background: var(--black);
+            display: flex; flex-direction: column; transition: all 0.4s ease; background: var(--black);
         }
-        .grid-item:hover { background: #0d0d0d; border-color: var(--gold); z-index: 10; box-shadow: inset 0 0 50px var(--glow); transform: translateY(-5px); }
-
+        .grid-item:hover { background: #0d0d0d; border-color: var(--gold); box-shadow: inset 0 0 50px var(--glow); }
         .grid-item h3 { color: var(--gold); font-size: 1rem; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 20px; }
-        .grid-item p { color: var(--text-muted); font-size: 0.95rem; line-height: 1.7; margin-bottom: 20px; }
+        .grid-item p { color: #777; font-size: 0.95rem; line-height: 1.7; }
 
-        .btn-sub {
-            display: inline-block; padding: 10px 15px; border: 1px solid var(--gold); color: var(--gold);
-            font-size: 0.65rem; text-transform: uppercase; letter-spacing: 2px; text-decoration: none; transition: 0.3s;
-        }
-        .btn-sub:hover { background: var(--gold); color: #000; }
-
-        footer { padding: 100px 20px; color: #222; font-size: 0.65rem; letter-spacing: 3px; text-align: center; border-top: 1px solid #111; width: 100%; }
+        footer { padding: 80px; color: #222; font-size: 0.65rem; text-align: center; border-top: 1px solid #111; width: 100%; }
     </style>
 </head>
 <body>
+
+    <div class="access-bar">
+        <a href="signup.html" class="btn-access btn-white">Sign Up Now</a>
+        <a href="portal.html" class="btn-access btn-gold">Members Only</a>
+        <a href="status.html" class="btn-access" style="color: #444;">App Download</a>
+    </div>
 
     <section class="hero">
         <h1>Aethelgard Global</h1>
@@ -73,34 +84,25 @@
         </div>
     </section>
 
-    <section class="cta-section">
-        <a href="briefing.html" class="btn-briefing">Access Project Briefing →</a>
-    </section>
-
     <section class="grid">
         <a href="maritime-lab.html" class="grid-item">
             <h3>01 // Maritime Synthesis</h3>
             <p>Thermal depolymerization of oceanic polymers into Graphene Structural Blocks (GSB).</p>
-            <span class="btn-sub">Open Lab Data</span>
         </a>
-
         <a href="lunar-lab.html" class="grid-item">
             <h3>02 // Lunar Logistics</h3>
             <p>Vanguard-class autonomous regolith extraction and extraterrestrial ISRU logistics.</p>
-            <span class="btn-sub">Open Logistics Feed</span>
         </a>
-
         <div class="grid-item">
             <h3>03 // Surplus Distribution</h3>
             <p>Immutable 60/40 distribution. Weekly stipends vs. Monthly equity retention.</p>
-            <div style="display: flex; gap: 10px;">
-                <a href="ledger-protocol.html" class="btn-sub">Review Ledger</a>
-                <a href="sovereign-ranks.html" class="btn-sub" style="border-color: #fff; color: #fff;">Tier Registry</a>
+            <div style="display: flex; gap: 10px; margin-top: 20px;">
+                <a href="ledger-protocol.html" style="color: var(--gold); text-decoration: none; font-size: 0.6rem; border: 1px solid var(--gold); padding: 5px 10px; text-transform: uppercase;">Ledger</a>
+                <a href="sovereign-ranks.html" style="color: #fff; text-decoration: none; font-size: 0.6rem; border: 1px solid #444; padding: 5px 10px; text-transform: uppercase;">Tiers</a>
             </div>
         </div>
     </section>
 
     <footer>AETHELGARD GLOBAL // ARTICLE IV // EST 2026</footer>
-
 </body>
 </html>

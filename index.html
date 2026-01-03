@@ -8,80 +8,71 @@
         :root {
             --gold: #d4af37;
             --black: #050505;
-            --industrial-grey: #1a1a1a;
-            --text-muted: #888;
+            --grey: #121212;
+            --text-muted: #666;
         }
 
         body {
             background-color: var(--black);
             color: #fff;
-            font-family: 'Inter', sans-serif;
+            font-family: 'Inter', -apple-system, sans-serif;
             margin: 0;
             display: flex;
             flex-direction: column;
             align-items: center;
         }
 
-        /* Industrial Navigation */
-        nav {
-            width: 100%;
-            padding: 25px;
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            border-bottom: 1px solid #222;
-            background: rgba(5, 5, 5, 0.9);
-        }
-
-        nav a {
-            color: var(--text-muted);
-            text-decoration: none;
-            font-size: 0.7rem;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-        }
-
-        /* Hero Section */
+        /* Hero / Declaration */
         .hero {
-            padding: 100px 20px;
+            padding: 140px 10% 80px 10%;
             text-align: center;
-            max-width: 800px;
+            max-width: 1000px;
         }
 
         h1 {
-            font-size: 3.5rem;
-            letter-spacing: 15px;
-            margin: 0;
+            font-size: 1rem;
+            letter-spacing: 8px;
             color: var(--gold);
-            font-weight: 200;
+            margin-bottom: 20px;
+            font-weight: 400;
         }
 
-        .tagline {
-            font-size: 0.9rem;
-            letter-spacing: 5px;
-            color: var(--text-muted);
-            margin-top: 15px;
+        .declaration {
+            font-size: clamp(2rem, 6vw, 4.5rem);
+            font-weight: 800;
+            line-height: 1.1;
+            letter-spacing: -2px;
+            margin-bottom: 40px;
             text-transform: uppercase;
         }
 
-        /* The Minimalist Video Link Button */
+        .manifesto {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: #aaa;
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            border-top: 1px solid #222;
+            padding-top: 40px;
+        }
+
+        /* Briefing Section */
         .briefing-box {
             margin: 60px 0;
-            padding: 40px;
-            border: 1px solid #222;
-            background: var(--industrial-grey);
-            width: 90%;
-            max-width: 600px;
             text-align: center;
+            border: 1px solid #222;
+            padding: 40px;
+            background: #080808;
         }
 
         .btn-briefing {
             display: inline-block;
-            padding: 15px 35px;
+            padding: 18px 45px;
             border: 1px solid var(--gold);
             color: var(--gold);
             text-decoration: none;
-            letter-spacing: 2px;
+            letter-spacing: 4px;
             font-size: 0.8rem;
             text-transform: uppercase;
             transition: 0.3s;
@@ -90,139 +81,86 @@
         .btn-briefing:hover {
             background: var(--gold);
             color: var(--black);
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.2);
         }
 
-        /* Insights / Slide Section */
-        .insights-label {
-            width: 100%;
+        /* Protocol Initialization */
+        .protocol-section {
+            padding: 100px 10%;
             text-align: center;
-            padding: 40px 0;
-            color: var(--gold);
-            letter-spacing: 4px;
-            font-size: 0.7rem;
+            border-top: 1px solid #111;
+            width: 100%;
+        }
+
+        .protocol-section h2 { 
+            font-size: 0.8rem; 
+            letter-spacing: 5px; 
+            color: var(--gold); 
+            margin-bottom: 40px;
             text-transform: uppercase;
         }
 
-        .slide-container {
-            display: flex;
-            overflow-x: auto;
-            gap: 20px;
-            width: 100%;
-            padding: 0 5% 50px 5%;
-            scroll-snap-type: x mandatory;
+        .email-btn {
+            font-size: 1.5rem;
+            color: #fff;
+            text-decoration: none;
+            border: 1px solid #333;
+            padding: 20px 40px;
+            transition: 0.3s;
+            display: inline-block;
         }
 
-        .slide-container::-webkit-scrollbar { display: none; }
-
-        .slide {
-            min-width: 320px;
-            height: 400px;
-            background: #0a0a0a;
-            border: 1px solid #222;
-            scroll-snap-align: center;
-            display: flex;
-            align-items: flex-end;
-            padding: 30px;
-            position: relative;
-        }
-        
-        /* Placeholder for your slide images */
-        .slide img {
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            object-fit: cover;
-            opacity: 0.5;
+        .email-btn:hover {
+            border-color: var(--gold);
+            background: rgba(212, 175, 55, 0.05);
         }
 
-        .slide-text { position: relative; z-index: 2; }
-
-        /* Infrastructure Section */
-        .grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            width: 90%;
-            max-width: 900px;
-            gap: 1px;
-            background: #222;
-            border: 1px solid #222;
-            margin-bottom: 100px;
-        }
-
-        .grid-item {
-            background: var(--black);
-            padding: 40px;
-        }
-
-        .grid-item h3 { color: var(--gold); font-size: 0.9rem; letter-spacing: 2px; margin-top: 0; }
-        .grid-item p { color: var(--text-muted); font-size: 0.8rem; line-height: 1.8; }
-
+        /* Footer */
         footer {
-            padding: 50px;
-            color: #333;
+            padding: 100px 20px;
+            color: #222;
             font-size: 0.6rem;
-            letter-spacing: 2px;
+            letter-spacing: 3px;
             text-align: center;
+            text-transform: uppercase;
+        }
+
+        .status-tag {
+            color: #00ff00;
+            font-family: monospace;
+            font-size: 0.7rem;
+            margin-top: 20px;
+            display: block;
         }
     </style>
 </head>
 <body>
 
-    <nav>
-        <a href="#charter">Charter</a>
-        <a href="#insights">Insights</a>
-        <a href="mailto:admin@aethelgard.global">Protocol</a>
-    </nav>
-
     <section class="hero">
-        <h1>AETHELGARD</h1>
-        <div class="tagline">Mining the Sea. Building the Stars.</div>
+        <h1>AETHELGARD GLOBAL</h1>
+        <div class="declaration">
+            The world is built by labor, <br>
+            <span style="color: var(--gold);">so it should be owned by labor.</span>
+        </div>
+        <div class="manifesto">
+            Aethelgard is a sovereign industrial collective. We utilize oceanic synthesis and lunar extraction to build the infrastructure of the future, governed by a mathematical ledger that ensures the worker is the only shareholder.
+        </div>
     </section>
 
     <div class="briefing-box">
-        <p style="font-size: 0.7rem; color: #555; margin-bottom: 20px; letter-spacing: 1px;">ENCRYPTED TRANSMISSION // 2026.04.12</p>
-        <h2 style="font-weight: 300; letter-spacing: 3px; margin-bottom: 30px;">THE SOVEREIGN BRIEFING</h2>
-        <a href="YOUR_YOUTUBE_LINK_HERE" class="btn-briefing" target="_blank">Access Video Briefing →</a>
+        <a href="YOUR_YOUTUBE_LINK_HERE" class="btn-briefing" target="_blank">Access Project Briefing →</a>
     </div>
 
-    <div class="insights-label" id="insights">Visual Roadmap / Field Data</div>
-    
-    <div class="slide-container">
-        <div class="slide">
-            <img src="slide1.jpg" alt="">
-            <div class="slide-text">
-                <div style="color: var(--gold); font-size: 0.6rem;">01</div>
-                <div style="letter-spacing: 2px; text-transform: uppercase;">Maritime Synthesis</div>
-            </div>
-        </div>
-        <div class="slide">
-            <img src="slide2.jpg" alt="">
-            <div class="slide-text">
-                <div style="color: var(--gold); font-size: 0.6rem;">02</div>
-                <div style="letter-spacing: 2px; text-transform: uppercase;">Lunar Extraction</div>
-            </div>
-        </div>
-        <div class="slide">
-            <img src="slide3.jpg" alt="">
-            <div class="slide-text">
-                <div style="color: var(--gold); font-size: 0.6rem;">03</div>
-                <div style="letter-spacing: 2px; text-transform: uppercase;">Ledger Surplus</div>
-            </div>
-        </div>
-    </div>
-
-    <section class="grid" id="charter">
-        <div class="grid-item">
-            <h3>60% Labor Dividend</h3>
-            <p>Direct mathematical distribution to the workforce. No corporate dilution. No middle-men.</p>
-        </div>
-        <div class="grid-item">
-            <h3>40% Asset Growth</h3>
-            <p>Scaling the autonomous fleet for oceanic processing and orbital logistics.</p>
-        </div>
+    <section class="protocol-section">
+        <h2>Initialize Membership Protocol</h2>
+        <a href="mailto:admin@aethelgard.global" class="email-btn">
+            admin@aethelgard.global
+        </a>
+        <span class="status-tag">[ SYSTEM INITIALIZATION IN PROGRESS ]</span>
     </section>
 
     <footer>
-        AETHELGARD GLOBAL SOVEREIGN COLLECTIVE // ARTICLE IV PROTOCOL SECURED
+        AETHELGARD GLOBAL // SOVEREIGN LEDGER // ARTICLE IV SECURED
     </footer>
 
 </body>

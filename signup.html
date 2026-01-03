@@ -3,32 +3,148 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AETHELGARD | Registration</title>
+    <title>AETHELGARD | Secure Registration</title>
     <style>
-        :root { --gold: #d4af37; --black: #050505; }
-        body { background: var(--black); color: #fff; font-family: 'Inter', sans-serif; display: flex; align-items: center; justify-content: center; height: 100vh; margin: 0; }
-        .form-box { width: 100%; max-width: 400px; padding: 40px; border: 1px solid #222; background: #0a0a0a; }
-        input, select { width: 100%; padding: 15px; margin: 15px 0; background: #000; border: 1px solid #333; color: #fff; box-sizing: border-box; }
-        button { width: 100%; padding: 15px; background: var(--gold); color: #000; border: none; font-weight: bold; text-transform: uppercase; letter-spacing: 2px; cursor: pointer; }
+        :root {
+            --gold: #d4af37;
+            --black: #050505;
+            --grey: #121212;
+            --accent: #222;
+        }
+
+        body {
+            background-color: var(--black);
+            color: #eee;
+            font-family: 'Inter', -apple-system, sans-serif;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .signup-container {
+            width: 100%;
+            max-width: 450px;
+            padding: 40px;
+            background: #0a0a0a;
+            border: 1px solid var(--accent);
+            text-align: center;
+            position: relative;
+            box-shadow: 0 0 50px rgba(0,0,0,0.5);
+        }
+
+        .signup-container::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--gold);
+        }
+
+        .lock-icon {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        h1 {
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            color: var(--gold);
+            margin: 0 0 15px 0;
+        }
+
+        p {
+            font-size: 0.85rem;
+            color: #777;
+            line-height: 1.6;
+            margin-bottom: 35px;
+        }
+
+        .btn-secure {
+            display: block;
+            background: var(--gold);
+            color: #000;
+            text-decoration: none;
+            padding: 20px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.85rem;
+            transition: all 0.3s ease;
+            border: 1px solid var(--gold);
+        }
+
+        .btn-secure:hover {
+            background: transparent;
+            color: var(--gold);
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.2);
+        }
+
+        .security-footer {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid var(--accent);
+        }
+
+        .status-light {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background: #00ff00;
+            border-radius: 50%;
+            margin-right: 8px;
+            box-shadow: 0 0 10px #00ff00;
+        }
+
+        .security-text {
+            font-family: monospace;
+            font-size: 0.65rem;
+            color: #444;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .back-link {
+            display: block;
+            margin-top: 25px;
+            color: #444;
+            text-decoration: none;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .back-link:hover {
+            color: #888;
+        }
     </style>
 </head>
 <body>
-    <div class="form-box">
-        <h2 style="color: var(--gold); text-transform: uppercase; letter-spacing: 3px; margin-top: 0;">Sign Up</h2>
-        <p style="color: #666; font-size: 0.8rem;">Initialize your Sovereign ID on the Aethelgard Registry.</p>
-        <form action="mailto:admin@aethelgard.global" method="post" enctype="text-plain">
-            <input type="text" placeholder="Legal Name or Alias" required>
-            <input type="email" placeholder="Secure Email Address" required>
-            <select>
-                <option>Select Specialization</option>
-                <option>Maritime Engineer</option>
-                <option>Lunar Logistics</option>
-                <option>Labor & Ethics</option>
-                <option>Software Architect</option>
-            </select>
-            <button type="submit">Initialize Protocol</button>
-        </form>
-        <a href="index.html" style="display: block; text-align: center; margin-top: 20px; color: #444; text-decoration: none; font-size: 0.7rem;">Back to Terminal</a>
+
+    <div class="signup-container">
+        <span class="lock-icon">🔒</span>
+        <h1>Initialize ID</h1>
+        <p>
+            To maintain sovereignty and end-to-end encryption, the Aethelgard Registry is currently processed through a secure Google Cloud node.
+        </p>
+
+        <a href="https://docs.google.com/forms/d/14I02HnFeRqBQj9DDBTcCAUKdj5dwq0qHEgn68wikRkg/viewform" target="_blank" class="btn-secure">
+            Open Secure Registry →
+        </a>
+
+        <div class="security-footer">
+            <span class="status-light"></span>
+            <span class="security-text">Encryption: AES-256 Active</span>
+        </div>
+
+        <a href="index.html" class="back-link">Return to Main Terminal</a>
     </div>
+
 </body>
 </html>

@@ -9,7 +9,7 @@
             --gold: #d4af37;
             --black: #050505;
             --grey: #121212;
-            --text-muted: #666;
+            --text-muted: #777;
         }
 
         body {
@@ -20,6 +20,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            overflow-x: hidden;
         }
 
         /* Hero / Declaration */
@@ -35,10 +36,11 @@
             color: var(--gold);
             margin-bottom: 20px;
             font-weight: 400;
+            text-transform: uppercase;
         }
 
         .declaration {
-            font-size: clamp(2rem, 6vw, 4.5rem);
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
             font-weight: 800;
             line-height: 1.1;
             letter-spacing: -2px;
@@ -47,82 +49,80 @@
         }
 
         .manifesto {
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             line-height: 1.8;
             color: #aaa;
-            max-width: 800px;
+            max-width: 850px;
             margin: 0 auto;
             text-align: center;
             border-top: 1px solid #222;
             padding-top: 40px;
         }
 
-        /* Briefing Section */
-        .briefing-box {
-            margin: 60px 0;
-            text-align: center;
-            border: 1px solid #222;
-            padding: 40px;
-            background: #080808;
+        /* The Critical Link Button */
+        .cta-section {
+            padding: 60px 5%;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         .btn-briefing {
             display: inline-block;
-            padding: 18px 45px;
-            border: 1px solid var(--gold);
+            padding: 22px 50px;
+            border: 2px solid var(--gold);
             color: var(--gold);
             text-decoration: none;
             letter-spacing: 4px;
-            font-size: 0.8rem;
+            font-size: 0.9rem;
             text-transform: uppercase;
-            transition: 0.3s;
+            transition: all 0.3s ease;
+            font-weight: bold;
         }
 
         .btn-briefing:hover {
             background: var(--gold);
             color: var(--black);
-            box-shadow: 0 0 20px rgba(212, 175, 55, 0.2);
+            box-shadow: 0 0 30px rgba(212, 175, 55, 0.3);
         }
 
-        /* Protocol Initialization */
-        .protocol-section {
-            padding: 100px 10%;
+        /* Industrial Info Grid */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            width: 100%;
+            border-top: 1px solid #111;
+        }
+
+        .grid-item {
+            padding: 80px 40px;
+            border: 1px solid #111;
+            transition: background 0.3s ease;
+        }
+        
+        .grid-item:hover { background: #080808; }
+
+        .grid-item h3 { color: var(--gold); font-size: 1rem; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 20px; }
+        .grid-item p { color: var(--text-muted); font-size: 0.95rem; line-height: 1.7; }
+
+        .highlight-box {
+            background: #0a0a0a;
+            border-left: 4px solid var(--gold);
+            padding: 40px;
+            margin: 40px 10%;
+            width: 80%;
+            max-width: 800px;
+        }
+
+        footer {
+            padding: 100px 20px;
+            color: #333;
+            font-size: 0.65rem;
+            letter-spacing: 3px;
             text-align: center;
             border-top: 1px solid #111;
             width: 100%;
-        }
-
-        .protocol-section h2 { 
-            font-size: 0.8rem; 
-            letter-spacing: 5px; 
-            color: var(--gold); 
-            margin-bottom: 40px;
-            text-transform: uppercase;
-        }
-
-        .email-btn {
-            font-size: 1.5rem;
-            color: #fff;
-            text-decoration: none;
-            border: 1px solid #333;
-            padding: 20px 40px;
-            transition: 0.3s;
-            display: inline-block;
-        }
-
-        .email-btn:hover {
-            border-color: var(--gold);
-            background: rgba(212, 175, 55, 0.05);
-        }
-
-        /* Footer */
-        footer {
-            padding: 100px 20px;
-            color: #222;
-            font-size: 0.6rem;
-            letter-spacing: 3px;
-            text-align: center;
-            text-transform: uppercase;
         }
 
         .status-tag {
@@ -131,36 +131,50 @@
             font-size: 0.7rem;
             margin-top: 20px;
             display: block;
+            letter-spacing: 1px;
         }
     </style>
 </head>
 <body>
 
     <section class="hero">
-        <h1>AETHELGARD GLOBAL</h1>
+        <h1>Aethelgard Global</h1>
         <div class="declaration">
             The world is built by labor, <br>
             <span style="color: var(--gold);">so it should be owned by labor.</span>
         </div>
         <div class="manifesto">
-            Aethelgard is a sovereign industrial collective. We utilize oceanic synthesis and lunar extraction to build the infrastructure of the future, governed by a mathematical ledger that ensures the worker is the only shareholder.
+            We are the architects of a sovereign industrial era. Aethelgard dismantles the extractive hierarchies of old industry. Through oceanic synthesis and lunar extraction, we are reclaiming the machine for the benefit of the creator.
         </div>
     </section>
 
-    <div class="briefing-box">
-        <a href="YOUR_YOUTUBE_LINK_HERE" class="btn-briefing" target="_blank">Access Project Briefing →</a>
+    <section class="cta-section">
+        <a href="briefing.html" class="btn-briefing">Access Project Briefing →</a>
+        <span class="status-tag">[ SECURE TERMINAL ACCESS ]</span>
+    </section>
+
+    <div class="highlight-box">
+        <h3 style="color: var(--gold); text-transform: uppercase; letter-spacing: 2px;">The Sovereign Ledger Protocol</h3>
+        <p>Aethelgard replaces the salary model with <strong>Direct Equity</strong>. In this collective, every verified hour of labor is logged as a permanent, non-dilutable share of the system's total surplus. <strong>Hour for hour, you own what you build.</strong></p>
     </div>
 
-    <section class="protocol-section">
-        <h2>Initialize Membership Protocol</h2>
-        <a href="mailto:admin@aethelgard.global" class="email-btn">
-            admin@aethelgard.global
-        </a>
-        <span class="status-tag">[ SYSTEM INITIALIZATION IN PROGRESS ]</span>
+    <section class="grid">
+        <div class="grid-item">
+            <h3>01 // Maritime Synthesis</h3>
+            <p>Our autonomous fleets utilize solar-thermal processing to harvest PET and HDPE from oceanic gyres, converting global waste into graphene-infused structural blocks for deep-sea and terrestrial infrastructure.</p>
+        </div>
+        <div class="grid-item">
+            <h3>02 // Lunar Logistics</h3>
+            <p>Blue-collar lunar operations focused on the maintenance of regolith extractors. We are building supply chains that transcend terrestrial limits, owned entirely by the personnel who maintain them.</p>
+        </div>
+        <div class="grid-item">
+            <h3>03 // Surplus Distribution</h3>
+            <p>The Ledger is an immutable mathematical constant. 60% of all generated surplus is distributed directly to the labor force in real-time. No boardrooms. No middle-men. No extraction.</p>
+        </div>
     </section>
 
     <footer>
-        AETHELGARD GLOBAL // SOVEREIGN LEDGER // ARTICLE IV SECURED
+        AETHELGARD GLOBAL SOVEREIGN COLLECTIVE // ARTICLE IV PROTOCOL // EST 2026
     </footer>
 
 </body>

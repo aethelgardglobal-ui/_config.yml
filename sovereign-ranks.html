@@ -1,1 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AETHELGARD | Sovereign Tier Registry</title>
+    <style>
+        :root {
+            --gold: #d4af37;
+            --black: #050505;
+            --grey: #121212;
+            --diamond: #b9f2ff;
+        }
 
+        body {
+            background-color: var(--black);
+            color: #eee;
+            font-family: 'Inter', -apple-system, sans-serif;
+            margin: 0;
+            line-height: 1.8;
+        }
+
+        nav {
+            padding: 20px 5%;
+            border-bottom: 1px solid #222;
+            display: flex;
+            justify-content: space-between;
+            background: #050505;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav a { color: var(--gold); text-decoration: none; font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase; }
+
+        .container { max-width: 1000px; margin: 0 auto; padding: 60px 5%; }
+
+        .header-block { border-left: 3px solid var(--gold); padding-left: 30px; margin-bottom: 60px; }
+        h1 { font-size: 2.5rem; letter-spacing: -1px; margin: 0; text-transform: uppercase; color: #fff; }
+
+        /* The Tiers Table */
+        .tier-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 40px 0;
+            background: var(--grey);
+        }
+
+        .tier-table th, .tier-table td {
+            padding: 25px;
+            text-align: left;
+            border: 1px solid #222;
+        }
+
+        .tier-table th { color: var(--gold); text-transform: uppercase; font-size: 0.7rem; letter-spacing: 2px; }
+
+        .diamond-row { background: rgba(185, 242, 255, 0.05); border-left: 5px solid var(--diamond); }
+        .diamond-text { color: var(--diamond); font-weight: bold; }
+
+        .sacrifice-box {
+            background: #0a0a0a;
+            border: 1px solid #333;
+            padding: 40px;
+            margin: 50px 0;
+        }
+
+        .rank-label { font-family: monospace; color: var(--gold); font-size: 0.8rem; margin-bottom: 10px; display: block; }
+        
+        .footer-note { font-size: 0.75rem; color: #555; text-align: center; margin-top: 80px; }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="index.html">← RETURN TO TERMINAL</a>
+        <span style="font-family: monospace; color: var(--gold); font-size: 0.8rem;">ARTICLE IV // SEC. 09</span>
+    </nav>
+
+    <div class="container">
+        <div class="header-block">
+            <h1>Sovereign Ranking & Tier Registry</h1>
+            <p>Subject: The relationship between equity retention and collective influence.</p>
+        </div>
+
+        <section>
+            <h2>The Philosophy of Retention</h2>
+            <p>In Aethelgard, we do not force you to lock your wealth. However, the strength of the collective relies on **Permanent Sovereignty**. If you choose to liquidate your shares for immediate cash, you are trading your future influence for present survival.</p>
+        </section>
+
+        
+
+        <table class="tier-table">
+            <thead>
+                <tr>
+                    <th>Sovereign Tier</th>
+                    <th>Equity Retention</th>
+                    <th>Weekly Flow</th>
+                    <th>Privileges</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="diamond-row">
+                    <td class="diamond-text">DIAMOND</td>
+                    <td>100% (No Liquidation)</td>
+                    <td>Full Stipend</td>
+                    <td>Highest Mission Priority + Voting Rights</td>
+                </tr>
+                <tr>
+                    <td style="color: var(--gold); font-weight: bold;">GOLD</td>
+                    <td>> 80% Retention</td>
+                    <td>Full Stipend</td>
+                    <td>Priority Mission Selection</td>
+                </tr>
+                <tr>
+                    <td style="color: #aaa;">SILVER</td>
+                    <td>> 50% Retention</td>
+                    <td>Full Stipend</td>
+                    <td>Standard Mission Access</td>
+                </tr>
+                <tr>
+                    <td style="color: #666;">LIQUIDATOR</td>
+                    <td>< 20% Retention</td>
+                    <td>Full Stipend</td>
+                    <td>Basic Labor Access Only</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="sacrifice-box">
+            <span class="rank-label">PROTOCOL ALERT: THE RANKING SACRIFICE</span>
+            <p>Every time you liquidate Monthly Equity for immediate survival, your **Sovereign Rank** decreases. This represents a reduction in your ownership stake of the collective’s machines. You are still paid your weekly median wage, but you are no longer an "Architect" of the future.</p>
+        </div>
+
+        <section>
+            <h2>The Retirement Exit</h2>
+            <p>For those who maintain **Diamond** or **Gold** status for 15+ years, the "Retirement Exit" allows a 100% liquidation of all stored Work-Credits without a ranking penalty, facilitating total generational wealth transfer.</p>
+        </section>
+
+        <div class="footer-note">
+            AETHELGARD GLOBAL // LABOR-OWNED MACHINE // EST. 2026
+        </div>
+    </div>
+
+</body>
+</html>

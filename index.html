@@ -12,216 +12,199 @@
             --bg-color: #0a0a0a;
             --accent-color: #00ff88;
             --text-color: #e0e0e0;
-            --secondary-text: #a0a0a0;
-            --card-bg: #161616;
+            --secondary-text: #808080;
             --border: #262626;
+            --input-bg: #111111;
         }
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
 
         body {
             background-color: var(--bg-color);
             color: var(--text-color);
             font-family: 'Inter', sans-serif;
-            line-height: 1.6;
-            overflow-x: hidden;
+            line-height: 1.7;
+            padding: 0 1rem;
         }
 
-        /* Typography */
-        h1, h2, h3 { font-weight: 900; letter-spacing: -0.02em; text-transform: uppercase; }
-        .mono { font-family: 'JetBrains Mono', monospace; color: var(--accent-color); font-size: 0.9rem; }
+        .mono { font-family: 'JetBrains Mono', monospace; color: var(--accent-color); font-size: 0.8rem; text-transform: uppercase; }
 
-        /* Layout */
         header {
-            padding: 4rem 2rem;
-            text-align: center;
-            border-bottom: 1px solid var(--border);
+            max-width: 800px;
+            margin: 6rem auto 4rem auto;
+            text-align: left;
         }
 
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 4rem 2rem;
-        }
+        h1 { font-size: 3rem; font-weight: 900; letter-spacing: -0.05em; margin-top: 0.5rem; }
 
-        section { margin-bottom: 6rem; }
+        .container { max-width: 800px; margin: 0 auto; }
 
-        /* Manifesto Content */
-        .manifesto-text {
-            font-size: 1.2rem;
+        /* Content Styling */
+        .manifesto-body {
+            font-size: 1.15rem;
             font-weight: 300;
             color: var(--text-color);
-            white-space: pre-line; /* Preserves paragraph spacing */
+            white-space: pre-line;
+            margin-bottom: 8rem;
         }
 
-        .manifesto-text b {
-            color: var(--accent-color);
-            font-weight: 700;
+        .manifesto-body b { color: var(--accent-color); font-weight: 600; }
+
+        /* Interaction / Comment Section */
+        #interaction-log {
+            border-top: 1px solid var(--border);
+            padding-top: 4rem;
+            margin-bottom: 6rem;
         }
 
-        /* Blog Section */
-        .blog-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 2rem;
-            margin-top: 2rem;
+        .comment-input-area {
+            margin-bottom: 3rem;
         }
 
-        .blog-post {
-            background: var(--card-bg);
-            padding: 2rem;
+        textarea {
+            width: 100%;
+            background: var(--input-bg);
             border: 1px solid var(--border);
-            border-radius: 4px;
+            color: var(--text-color);
+            padding: 1.5rem;
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            resize: none;
+            outline: none;
             transition: border-color 0.3s ease;
         }
 
-        .blog-post:hover { border-color: var(--accent-color); }
+        textarea:focus { border-color: var(--accent-color); }
 
-        .blog-date { margin-bottom: 0.5rem; display: block; }
-
-        /* Navigation */
-        nav {
-            position: sticky;
-            top: 0;
-            background: rgba(10, 10, 10, 0.9);
-            backdrop-filter: blur(10px);
-            padding: 1rem;
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            border-bottom: 1px solid var(--border);
-            z-index: 100;
-        }
-
-        nav a {
-            color: var(--secondary-text);
-            text-decoration: none;
-            font-size: 0.8rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-        }
-
-        nav a:hover { color: var(--accent-color); }
-
-        /* Footer */
-        footer {
-            padding: 4rem 2rem;
-            text-align: center;
-            border-top: 1px solid var(--border);
-            color: var(--secondary-text);
-            font-size: 0.8rem;
-        }
-
-        .cta-button {
+        .submit-trigger {
             display: inline-block;
-            background: var(--accent-color);
-            color: #000;
-            padding: 1rem 2rem;
+            margin-top: 1rem;
+            color: var(--accent-color);
             text-decoration: none;
-            font-weight: 900;
-            margin-top: 2rem;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.9rem;
+            cursor: pointer;
             text-transform: uppercase;
+            font-weight: bold;
+        }
+
+        .log-feed {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .log-entry {
+            border-left: 2px solid var(--border);
+            padding-left: 1.5rem;
+            padding-bottom: 0.5rem;
+        }
+
+        .log-meta { font-size: 0.75rem; color: var(--secondary-text); margin-bottom: 0.5rem; }
+        .log-text { font-size: 1rem; color: var(--text-color); }
+
+        footer {
+            padding: 4rem 0;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            color: var(--secondary-text);
+            font-size: 0.7rem;
+            letter-spacing: 0.1em;
         }
 
         @media (max-width: 600px) {
             h1 { font-size: 2rem; }
-            .manifesto-text { font-size: 1.1rem; }
+            header { margin: 3rem auto 2rem auto; }
         }
     </style>
 </head>
 <body>
 
-    <nav>
-        <a href="#vision">The Vision</a>
-        <a href="#blog">Updates</a>
-        <a href="#join">Join Us</a>
-    </nav>
-
     <header>
-        <p class="mono">// INITIATIVE</p>
-        <h1>AETHELGARD // GLOBAL</h1>
+        <p class="mono">// AETHELGARD_INITIATIVE</p>
+        <h1>AETHELGARD//GLOBAL</h1>
     </header>
 
     <main class="container">
         
-        <section id="vision">
-            <div class="manifesto-text">
-                Imagine a world. A world in unison. A world that works together. Maybe even a world at peace. A world giving effort to equalize pay and create a machine that works for all. 
-                
-                <b>A business worked for and owned by the workforce.</b> One major currency for the working class people of the planet. A business that has no ties and no buy-ins from any outsiders. A business for the people and by the people. 
-                
-                Where would the funds come from to start such a venture? That is the root of all evil. The ones in power do not want to share that power. Our populations are working for the bottom fraction of a percent to share amongst ourselves. Companies have become so full of greed, they do not even care to help the people that are working for them. 
-                
-                A company built by an individual can remain owned by said individual. If a company were built from a collective, it could thrive for the collective. This movement would require major cooperation from the powers that be. Whether billionaires or governments, they have the world’s purse. If a shift in wealth occurred, it would have to come from the top down. The whole “idea” of the top helping the bottom. The bottom, then able to build up to the middle, and have the world’s power flipped to the people. 
-                
-                Let the markets start being owned by a workforce of the planet. A global effort to overcome the desperations of mankind and turn the world green. Let the planet thrive as well as the people. We can all fix a broken planet.
-                
-                I have a vision of an effort towards cleaning our environment. Building affordable housing for all who need it. Building wealth for the bottom up. If the floor raises, so does the ceiling. If every worker were to have a say in the sovereign community, if they had shares only that can be earned with labor, it would be a just system. Every hour worked, getting a share in the collective. 
-                
-                <b>Starting with our beautiful oceans.</b> We have so many plastics floating around in our waters and being buried in our lands. These plastics could be made into a million different things. The topmost to build housing. If we were to create building blocks out of recycled plastics, we could build housing around the entire world.
-                
-                We purify these plastics and create <b>HDPE material (High-Density Polyethylene)</b>, and create the molds of the many uses. To turn the world’s trash into houses would be amazing. Even the roof shingles could be pressed out of our forge. We build sheets, blocks, shingles, and any other type of mold needed to construct an entire house. 
-                
-                What if we could build in space? An entire space station made of Earth’s trash? Worker built. Worker owned. A global collective that could change the entire future of mankind. 
-                
-                With the correct group of people that have enough stature to actually sway any type of powers that be, momentous things could happen. This could truly be the single greatest thing mankind has ever accomplished.
+        <section class="manifesto-body">
+            Imagine a world. A world in unison. A world that works together. Maybe even a world at peace. A world giving effort to equalize pay and create a machine that works for all. <b>A business worked for and owned by the workforce.</b> One major currency for the working class people of the planet. A business that has no ties and no buy-ins from any outsiders. A business for the people and by the people. 
+            
+            Where would the funds come from to start such a venture? That is the root of all evil. The ones in power do not want to share that power. Our populations are working for the bottom fraction of a percent to share amongst ourselves. Companies have become so full of greed, they do not even care to help the people that are working for them. 
+
+            If a company were built from a collective, it could thrive for the collective. This movement would require major cooperation from the powers that be. Whether billionaires or governments, they have the world’s purse. If a shift in wealth occurred, it would have to come from the top down. The whole “idea” of the top helping the bottom. The bottom, then able to build up to the middle, and have the world’s power flipped to the people. 
+
+            Let the markets start being owned by a workforce of the planet. A global effort to overcome the desperations of mankind and turn the world green. Let the planet thrive as well as the people. We can all fix a broken planet.
+
+            I have a vision of an effort towards cleaning our environment. Building affordable housing for all who need it. Building wealth for the bottom up. If the floor raises, so does the ceiling. If every worker were to have a say in the sovereign community, if they had shares only that can be earned with labor, it would be a just system. Every hour worked, getting a share in the collective. 
+
+            <b>Starting with our beautiful oceans.</b> We have so many plastics floating around in our waters and being buried in our lands. These plastics could be made into a million different things. The topmost to build housing. If we were to create building blocks out of recycled plastics, we could build housing around the entire world; wherever it may be needed. We take our worst shorelines and make the governments pay the collective to remove and restore their shorelines. 
+
+            As we purify these plastics and create <b>HDPE material (High-Density Polyethylene)</b>, and create the molds of the many uses. The one basic material we want to produce would be building blocks for housing. To turn the world’s trash into houses would be amazing. Even the roof shingles could be pressed out of our forge. We build sheets, blocks, shingles, and any other type of mold needed to construct an entire house. The tubs, the showers, the flooring, the sinks, our forge could build a world of wealth out of trash. 
+
+            Literally, the sky isn’t even the limit! What if we could build in space? An entire space station made of Earth’s trash? Worker built. Worker owned. A global collective that could change the entire future of mankind. 
+
+            Imagine. Floating docks all around the world. Made purely of the trash that was floating around polluting our waters. Entire islands could be built out of trash! Why not? The possibilities are endless. Why stop there? We could build the very ships we use to collect more recycles. 
+
+            With the correct group of people that have enough stature to actually sway any type of powers that be, momentous things could happen. This could truly be the single greatest thing mankind has ever accomplished. There is no reason this vision could not become a reality. If you feel the same, let us do something about it. This idea is out there. Who will step up to help save mankind? Please find it in your heart to selflessly start a new chapter in human existence.
+        </section>
+
+        <section id="interaction-log">
+            <p class="mono">// THE_GLOBAL_LOG</p>
+            <h2 style="margin-bottom: 2rem; font-weight: 900;">COMMUNAL INTERACTION</h2>
+            
+            <div class="comment-input-area">
+                <textarea id="comment-text" rows="4" placeholder="Enter your thoughts on the collective initiative..."></textarea>
+                <span class="submit-trigger" onclick="addComment()">[ COMMIT_TO_LOG ]</span>
             </div>
-        </section>
 
-        <hr style="border: 0; border-top: 1px solid var(--border);">
-
-        <section id="blog">
-            <p class="mono">// FIELD REPORTS</p>
-            <h2 style="margin-bottom: 2rem;">Latest Updates</h2>
-            <div class="blog-grid" id="blog-container">
+            <div class="log-feed" id="log-feed">
                 </div>
-        </section>
-
-        <section id="join" style="text-align: center; border: 1px solid var(--accent-color); padding: 3rem;">
-            <h2>Step Up to Help</h2>
-            <p style="margin-top: 1rem;">Please find it in your heart to selflessly start a new chapter in human existence.</p>
-            <a href="mailto:contact@aethelgard.global" class="cta-button">Contact the Initiative</a>
         </section>
 
     </main>
 
     <footer>
-        <p>© 2026 AETHELGARD // GLOBAL - THE WORLD IS BUILT BY LABOR</p>
+        <p>AETHELGARD // GLOBAL // 2026</p>
     </footer>
 
     <script>
-        // Simple Blog Data Object
-        const blogPosts = [
-            {
-                title: "The HDPE Forge Concept",
-                date: "January 8, 2026",
-                excerpt: "Exploring the thermal dynamics of converting ocean plastics into modular construction blocks..."
-            },
-            {
-                title: "The Labor-Owned Model",
-                date: "January 5, 2026",
-                excerpt: "How the 'Echelon' simulation in Arma Reforger proved the viability of a 1:1 labor-to-share ratio."
-            }
-        ];
+        const logFeed = document.getElementById('log-feed');
+        const commentInput = document.getElementById('comment-text');
 
-        const container = document.getElementById('blog-container');
+        // Load existing comments from LocalStorage
+        let entries = JSON.parse(localStorage.getItem('aethelgard_logs')) || [];
 
-        blogPosts.forEach(post => {
-            const article = document.createElement('div');
-            article.className = 'blog-post';
-            article.innerHTML = `
-                <span class="mono blog-date">${post.date}</span>
-                <h3>${post.title}</h3>
-                <p style="color: var(--secondary-text); margin-top: 1rem;">${post.excerpt}</p>
-                <a href="#" style="color: var(--accent-color); text-decoration: none; font-size: 0.8rem; display: block; margin-top: 1.5rem; font-weight: bold;">READ MORE →</a>
-            `;
-            container.appendChild(article);
-        });
+        function renderLogs() {
+            logFeed.innerHTML = '';
+            entries.slice().reverse().forEach(entry => {
+                const div = document.createElement('div');
+                div.className = 'log-entry';
+                div.innerHTML = `
+                    <div class="log-meta class="mono">${entry.date}</div>
+                    <div class="log-text">${entry.text}</div>
+                `;
+                logFeed.appendChild(div);
+            });
+        }
+
+        function addComment() {
+            const text = commentInput.value.trim();
+            if (text === '') return;
+
+            const newEntry = {
+                text: text,
+                date: new Date().toLocaleString()
+            };
+
+            entries.push(newEntry);
+            localStorage.setItem('aethelgard_logs', JSON.stringify(entries));
+            commentInput.value = '';
+            renderLogs();
+        }
+
+        // Initial render
+        renderLogs();
     </script>
 </body>
 </html>
